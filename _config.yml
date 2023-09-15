@@ -14,11 +14,11 @@
 
 
 # Site Settings
-title: Matthew Inglis-Whalen -- Data Scientist
+title: "Matthew Inglis-Whalen -- Data Scientist"
 title_separator: "-"
-name : "Matt Inglis-Whalen
-description: "Data Scientist"
-email: mingliswhalen@gmail.com
+name : &name "Matt Inglis-Whalen
+description: &description "Data Scientist"
+email: "mingliswhalen@gmail.com"
 baseurl: ""
 url: "https://mattingliswhalen.github.io"
 repository: "MattInglisWhalen/mattingliswhalen.github.io"
