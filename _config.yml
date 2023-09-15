@@ -16,12 +16,12 @@
 # Site Settings
 title: Matthew Inglis-Whalen -- Data Scientist
 title_separator: "-"
-name : @name "Matt Inglis-Whalen
-description: @ description "Data Scientist"
+name : "Matt Inglis-Whalen
+description: "Data Scientist"
 email: mingliswhalen@gmail.com
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: ""
 url: "https://mattingliswhalen.github.io"
-repository: "mattingliswhalen/mattingliswhalen.github.io"
+repository: "MattInglisWhalen/mattingliswhalen.github.io"
 
 
 
