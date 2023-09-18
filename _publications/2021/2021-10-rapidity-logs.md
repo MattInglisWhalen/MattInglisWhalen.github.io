@@ -1,5 +1,5 @@
 ---
-title: "Factorization of Power Corrections in the Drell-Yan Process in EFT"
+title: "Rapidity Logarithms in SCET Without Modes"
 collection: publications
 permalink: /publication/2021-10-rapidity-logs
 excerpt: 
