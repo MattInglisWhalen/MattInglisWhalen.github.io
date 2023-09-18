@@ -11,15 +11,16 @@ redirect_from:
 
 Experience
 ======
-* 2019 - Present: Sr. Machine Learning Scientist, Layer 6 AI at TD
-  * Team Lead for Risk applied work
-  * Team Lead for privacy research
+* 2022 - Present: Professional Development
+* 
+* DataCamp certification 
+* MIW's AutoFit -- Automatically find the best function to fit a given dataset
 
 Education
 ======
-* Ph.D in Particle Physics, University of Toronto, 2022
-* M.Sc. in Physics, University of Edinburgh, 2014
-* B.Sc. in Physics, with Minor in Mathematics, Carleton University, 2013
+* Ph.D. in Particle Physics, University of Toronto, 2022
+* M.Sc. in Physics, with Distinction, University of Edinburgh, 2014
+* B.Sc. in Physics, Highest Honours, with Minor in Mathematics, Carleton University, 2013
   
 Skills
 ======
