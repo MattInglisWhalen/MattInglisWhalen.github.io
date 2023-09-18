@@ -25,7 +25,7 @@ Skills
 ======
 * Languages: Python, SQL, C++
 * Deep Learning Libraries: Pytorch, Keras
-* Data Science Libraries: Scikit-learn, Pandas, Numpy, Scipy
+* Data Science Libraries: Scikit-learn, Pandas, Numpy, Seaborn, Tableau
 
 Publications
 ======

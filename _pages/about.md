@@ -8,8 +8,10 @@ redirect_from:
   - /about.html
 ---
 
-I am a newly minted physics PhD looking to transfer my skills to the Data Science industry. For hiring teams, please 
-visit my demos section to view and interact with my completed projects.
+I am a newly minted physics PhD looking to transfer my skills to the Data Science industry. I'm passionate about 
+estimating uncertainties in a model's output, and love good visualizations comparing raw data to model predictions.
+
+For hiring teams, please visit my portfolio section to view and interact with my completed projects.
 
 ### News:
 

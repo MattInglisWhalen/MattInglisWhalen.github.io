@@ -1,5 +1,9 @@
 # main links
 main:
+
+  - title: "Demos"
+    url: /portfolio/
+
   - title: "Publications"
     url: /publications/
 
