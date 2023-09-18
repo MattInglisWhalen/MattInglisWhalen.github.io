@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Enterprise ML grounded in fundamental research"
+title: "Physicist by training, Data Scientist by trade"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,21 +8,14 @@ redirect_from:
   - /about.html
 ---
 
-I am a Sr. Machine Learning Scientist with Layer 6 AI at TD. On the applied side, I lead the development of credit risk ML models for TD, while in research I focus on privacy and generative modelling.
-
-Privacy enhancing technologies are crucial for developing and deploying machine learning models in highly regulated industries like banking and healthcare. My research group at Layer 6 AI is advancing TD's capabilities in federated learning, augmented by differential privacy.
-
-My current interest in generative modeling is how to properly account for the implications of the manifold hypothesis - that high-dimensional natural data belong to low-dimensional manifolds. To accurately represent natural data, generative models should learn both manifold structure and the distribution of data on the manifold. My work with our group at Layer 6 AI is aimed at developing rigorous techniques that solve foundational problems in generative modeling.
+I am a newly minted physics PhD looking to transfer my skills to the Data Science industry. For hiring teams, please 
+visit my demos section to view and interact with my completed projects.
 
 ### News:
-- May 2023 - Nature Communications has published my [paper](https://www.nature.com/articles/s41467-023-38569-4) on decentralized federated learning with differential privacy guarantees
-- Jan. 2023 - We had two papers accepted at ICLR 2023 including one [Spotlight (notable top 25%)](https://openreview.net/forum?id=qLOaeRvteqbx) and a [Poster](https://openreview.net/forum?id=Rvee9CAX4fi)
-- Oct. 2022 - Five papers submitted to various NeurIPS workshops were all accepted this year, one with an oral and another spotlight. [AFCP](https://www.afciworkshop.org/afcp2022), [ICBINB](https://sites.google.com/view/icbinb-2022/), [FL](https://federated-learning.org/fl-neurips-2022/), [ML4PS](https://ml4physicalsciences.github.io/2022/), [NeurReps](https://www.neurreps.org/)
-- Sept. 2022 - I'll be serving as a Program Chair for the [federated learning workshop](https://federated-learning.org/fl-neurips-2022/) at this year's NeurIPS
-- June 2022 - Two papers accepted to the ICML workshops [TAG-ML](https://www.tagds.com/events/conferences/tag-in-machine-learning) and [TPDP](https://tpdp.journalprivacyconfidentiality.org/2022/), headed to an in-person conference for the first time in years
-- Feb. 2022 - Some [joint work](https://www.nature.com/articles/s41598-022-05539-7) on privacy enhancing technologies with Graham Taylor's lab was accepted in Nature Scientific Reports
-- Aug. 2021 - We had a [paper](https://proceedings.neurips.cc/paper/2021/hash/dfd786998e082758be12670d856df755-Abstract.html) accepted at this year's NeurIPS conference
-- Jan. 2021 - [Our paper](https://openreview.net/forum?id=W3Wf_wKmqm9) on reinforcement learning was accepted to ICLR
-- Sept. 2019 - Jumping full-time into ML, I joined [Layer 6 AI](https://layer6.ai/), part of TD Bank, as a Machine Learning Scientist
-- Aug. 2019 - I defended my [thesis](https://tspace.library.utoronto.ca/handle/1807/97354) to complete my PhD in physics at UofT
-- Nov. 2017 - I was very pleased to win a [Vanier Canada Graduate Scholarship](https://vanier.gc.ca/en/home-accueil.html), Canada's most competitive PhD level scholarship!
+
+- August 2023 --- Completed DataCamp's Professional Data Scientist certification.
+- December 2022 --- [MIW's autofit](https://ingliswhalen.com/miws-autofit/) is now available for download on my new website
+- March 2022 --- I defended my [thesis], completing my PhD in particle physics at the University of Toronto
+- October 2021 --- Met the PhD quota! Third paper [Factorization of Power Corrections in the Drell-Yan Process in EFT ](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.104.076018) has been published in Phys Rev D!
+- October 2021 --- After a year of arguing with reviewers, our new article [Rapidity logarithms in SCET without modes](https://www.sciencedirect.com/science/article/abs/pii/S0375947421001251?via%3Dihub) has been published in Nucl Phys A!
+- May 2018 --- My first THEP publication, entitled [Renormalization of dijet operators at order 1/Q^2 in Soft-Collinear Effective Theory](https://link.springer.com/article/10.1007/JHEP05(2018)023), has been published by JHEP!
