@@ -9,12 +9,11 @@ redirect_from:
 
 {% include base_path %}
 
-Experience
+Projects
 ======
-* 2022 - Present: Professional Development
-* 
-* DataCamp certification 
-* MIW's AutoFit -- Automatically find the best function to fit a given dataset
+* Future: Transformers in NLP / computer vision / 
+* 2023 : Daily London Weather -- Comparing models when seasonal periods are long
+* 2022-2023 : MIW's AutoFit -- A desktop app to automatically find the best function to fit a given dataset
 
 Education
 ======

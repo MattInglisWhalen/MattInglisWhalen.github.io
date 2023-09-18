@@ -1,5 +1,5 @@
 ---
-title: "Power Corrections and Rapidity Logarithms in Soft-Collinear Eective Theory"
+title: "Power Corrections and Rapidity Logarithms in Soft-Collinear Effective Theory"
 collection: talks
 type: "Talk"
 permalink: /talks/2022-defense
