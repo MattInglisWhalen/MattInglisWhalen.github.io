@@ -7,13 +7,13 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Jesse Cresswell"
+title                    : "Matt Inglis-Whalen"
 title_separator          : "-"
-name                     : &name "Jesse Cresswell"
-description              : &description "Sr. Machine Learning Scientist at Layer 6 AI"
-url                      : https://jescresswell.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+name                     : &name "Matt Inglis-Whalen"
+description              : &description "Data Scientist"
+url                      : https://mattingliswhalen.github.io 
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "jescresswell/jescresswell.github.io"
+repository               : "MattInglisWhalen/mattingliswhalen.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -80,15 +80,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "Jesse Cresswell"
+  name             : "Matthew Inglis-Whalen"
   avatar           : "profile.png"
-  bio              : "Sr. Machine Learning Scientist"
-  location         : "Toronto ON, Canada"
-  employer         : "Layer 6 AI at TD"
+  bio              : "Data Scientist"
+  location         : "Giessen, Germany"
+  employer         : "Professional Development"
   pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=7CwOlvoAAAAJ&hl=en"
+  googlescholar    : 
   email            :
-  researchgate     : "https://www.researchgate.net/profile/Jesse-Cresswell"
+  researchgate     : 
   uri              :
   bitbucket        :
   codepen          :
@@ -96,14 +96,14 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "jescresswell"
+  github           : "MattInglisWhalen"
   google_plus      :
   keybase          :
   instagram        :
   impactstory      : 
   lastfm           :
-  linkedin         : "jesse-cresswell"
-  orcid            : "http://orcid.org/0000-0002-9284-8804"
+  linkedin         : "matt-inglis-whalen"
+  orcid            : "https://orcid.org/0000-0001-5734-7070"
   pinterest        :
   soundcloud       :
   stackoverflow    :
