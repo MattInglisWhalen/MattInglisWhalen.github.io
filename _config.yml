@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 #
 # Future-Matt: run the following command in ruby from .../GitHub/mattingliswhalen.github.io to build the site
-# bundle
+# bundle exec jekyll serve
 #
 
 # Site Settings
