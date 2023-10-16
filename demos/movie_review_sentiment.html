@@ -37,8 +37,8 @@ function send_post_request() {
   const data = document.getElementById("text_area").value;
 
   const xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "http://localhost:80/predict");
-  xhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+  xhttp.open("POST", "http://3.19.53.186:80/predict");
+  xhttp.setRequestHeader('Access-Control-Allow-Origin', 'https://mattingliswhalen.github.io');
   xhttp.setRequestHeader("Content-Type", "application/json");
   xhttp.onload = function() {
     review_history = xhttp.responseText + "--------------------------------------------" + review_history
