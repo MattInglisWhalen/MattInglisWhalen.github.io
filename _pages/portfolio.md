@@ -9,7 +9,7 @@ author_profile: true
 Try these models yourself! <span style="background-color:#88FF88">Available</span> 
 <span style="background-color:#FF8888">Work in progress</span>
 <details>
-<summary><span style="font-size:16.0pt;background-color:#88FF88">Natural Language Processing</span><</summary>
+<summary><span style="font-size:16.0pt;background-color:#88FF88">Natural Language Processing</span></summary>
 
 <h3>Movie Review Sentiment</h3>
 

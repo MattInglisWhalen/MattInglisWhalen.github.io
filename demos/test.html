@@ -44,7 +44,7 @@ function send_post_request() {
     review_history = xhttp.responseText + "--------------------------------------------" + review_history
     document.getElementById("responses").innerHTML = review_history;
   }
-  xhttp.send(JSON.stringify(data));
+  xhttp.send(data);
 }
 </script>
 
