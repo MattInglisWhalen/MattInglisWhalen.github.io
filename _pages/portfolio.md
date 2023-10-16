@@ -5,36 +5,48 @@ permalink: /portfolio/
 author_profile: true
 ---
 
-{% include base_path %}
+<details open>
+  <summary>#Demos</summary>
 
+  Try these models yourself! <span style="background-color:#00FF00">Available</span> <span style="background-color:#FF0000">Work in progress</span>
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %}
+  <details>
+    <summary>## <span style="background-color:#00FF00">Natural Language Processing</span></summary>
 
-# Demos
+    ### Movie Review Sentiment
 
-Try these models yourself!
+    A small project for me to learn how to deploy models to a server. Here a simple bag-of-words model to predict the sentiment of a provided movie review. [Try it out yourself]          (https://mattingliswhalen.github.io/demos/movie_review_sentiment.html) or read more about the model at the [GitHub repository](https://github.com/MattInglisWhalen/MovieReviewSentiments)!
 
-## Natural Language Processing
+  </details>
 
-### Movie Review Sentiment
+  <details>
+    <summary>## <span style="color:red">Time-Series Analysis</span></summary>
 
-A small project for me to learn how to deploy models to a server. Here a simple bag-of-words model to predict the sentiment of a provided movie review. [Try it out yourself](mattingliswhalen.github.io/demos/movie_review_sentiment.html) or read more about the model at the [GitHub repository](https://github.com/MattInglisWhalen/MovieReviewSentiments)!
+  </details>
 
-## Time-Series Analysis
+  <details>
+    <summary>## <span style="color:red">Audio Processing</span></summary>
 
-## Audio Processing
+  </details>
 
-## Image Processing
+  <details>
+    <summary>## <span style="color:red">Image Processing</span></summary>
 
-# Projects without Demos
+  </details>
 
-For various reasons these projects are not available through the web. 
+</details>
 
-## Curve-Fitting
+<details open>
+  <summary># <span style="color:green">Projects without Demos</span></summary>
 
-### MIW's AutoFit
+  For various reasons these projects are not available through the web. 
 
-This project was originally meant to be marketed online to researchers and professionals that needed a quick way to determine the best functional model to fit their 1D data. This multiplatform GUI is compatible with Windows, MacOSX, and Ubuntu.
+  <details>
+    <summary>## Curve Fitting</summary>
 
+    ### MIW's AutoFit
+
+    This project was originally meant to be marketed online to researchers and professionals that needed a quick way to determine the best functional model to fit their 1D data. This       multiplatform GUI is compatible with Windows, MacOSX, and Ubuntu.
+  </details>
+
+</details>
