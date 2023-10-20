@@ -32,7 +32,7 @@ function send_post_request() {
   const data = document.getElementById("text_area").value;
 
   const xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "https://18.222.194.198:443/predict");
+  xhttp.open("POST", "18.222.194.198:443/predict");
   xhttp.setRequestHeader('Access-Control-Allow-Origin', 'https://mattingliswhalen.github.io');
   xhttp.setRequestHeader("Content-Type", "application/json");
   xhttp.onload = function() {
