@@ -16,7 +16,7 @@ Try these models yourself! <span style="background-color:#88FF88">Available</spa
 A small project for me to learn how to deploy models to a server. 
 Here a simple bag-of-words model to predict the sentiment of a provided movie review. 
 
-<a href="https://mattingliswhalen.github.io/demos/movie_review_sentiment.html">
+<a href="ec2-18-216-26-152.us-east-2.compute.amazonaws.com">
 Try it out yourself</a>
 or read more about the model at the
 <a href="https://github.com/MattInglisWhalen/MovieReviewSentiments">
