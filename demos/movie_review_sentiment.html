@@ -27,24 +27,19 @@ Movie Review Sentiment by Matthew Inglis-Whalen
 <script>
 var review_history = "";
 
-function test_function() {
-  let form_value = document.getElementById("text_area").value;
-  document.getElementById("demo").innerHTML = "<p>Now you're seeing this!</p>" + form_value ;
-}
-
 function send_post_request() {
 
   const data = document.getElementById("text_area").value;
 
   const xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "http://3.19.53.186:80/predict");
+  xhttp.open("POST", "https://18.222.194.198:80/predict");
   xhttp.setRequestHeader('Access-Control-Allow-Origin', 'https://mattingliswhalen.github.io');
   xhttp.setRequestHeader("Content-Type", "application/json");
   xhttp.onload = function() {
     review_history = xhttp.responseText + "--------------------------------------------" + review_history
     document.getElementById("responses").innerHTML = review_history;
   }
-  xhttp.send(JSON.stringify(data));
+  xhttp.send(data);
 }
 </script>
 
