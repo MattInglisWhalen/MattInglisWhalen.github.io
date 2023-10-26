@@ -11,10 +11,11 @@ Try these models yourself! <span style="background-color:#88FF88">Available</spa
 <details>
 <summary><span style="font-size:16.0pt;background-color:#88FF88">Natural Language Processing</span></summary>
 
-<h3>Movie Review Sentiment</h3> <a href="http://ec2-18-216-26-152.us-east-2.compute.amazonaws.com">
-▶️</a>
+<h3>Movie Review Sentiment <a href="http://ec2-18-216-26-152.us-east-2.compute.amazonaws.com">▶️</a></h3> 
 
 <a href="http://ec2-18-216-26-152.us-east-2.compute.amazonaws.com"><img src="https://mattingliswhalen.github.io/images/prestige.png"></a>
+
+<br>
 
 A small project for me to learn how to deploy models to a server. 
 Here a simple bag-of-words model to predict the sentiment of a provided movie review. 
