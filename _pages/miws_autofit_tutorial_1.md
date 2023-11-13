@@ -29,7 +29,7 @@ image or the console area if you don't like the colour scheme.
 
 Now let's load up a dataset. The package should come with all the sample sets used in this tutorial, but if you can't 
 find it, we will also provide the files in these tutorial pages. Let's click load data and navigate to 
-<a href="https://github.com/MattInglisWhalen/MIW_AutoFit/autofit/data/linear_data_yerrors.csv">
+<a href="http://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/linear_data_yerrors.csv">
 linear_data_yerrors.csv</a>.
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/new_opts.jpg">
@@ -47,7 +47,7 @@ after the ± symbol is the standard deviation of the mean. For more details abou
 and uncertainties, you can view the references page.
 
 Let's say you also have another linear dataset you want to plot. Click load data and select file 
-<a href="https://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/example_XLS_10.xls">
+<a href="http://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/example_XLS_10.xls">
 example_XLS_10.xls
 </a>
 
@@ -72,8 +72,12 @@ will be overlayed, with the average fit being displayed in red.
 The console panel on the far right will display the best fit parameters and uncertainty estimates 
 for this average fit.
 
-Finally, let's load up one more dataset to showcase the Show Residuals button. Opening and fitting linear data 
-multiple_measurements.csv, we see that multiple measurements have been made at each x-value. Now click Show Residuals.
+Finally, let's load up one more dataset to showcase the Show Residuals button. Opening and fitting 
+<a href="http://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/linear_data_multiple_measurements.csv">
+example_XLS_10.xls
+</a>
+linear_data_multiple_measurements.csv
+</a>, we see that multiple measurements have been made at each x-value. Now click Show Residuals.
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/residuals.jpg">
 
@@ -87,5 +91,5 @@ disagree with one another, you will have to use your own judgement based on the 
 
 ---
 
-In the [next tutorial](<img src="https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_2/">), we take a look at
+In the [next tutorial](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_2/), we take a look at
 fitting with other commonly-used functional models.
