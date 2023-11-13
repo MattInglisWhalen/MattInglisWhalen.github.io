@@ -1,7 +1,8 @@
 ---
-title: 'MIWs AutoFit -- Tutorial 2 -- Special Functions'
+title: "MIW's AutoFit -- Tutorial 2 -- Special Functions"
 date: 2023-11-13
-permalink: /posts/miws_autofit_tutorial_2/
+permalink: /MIWs_AutoFit_Tutorial_2/
+author_profile: true
 tags:
   - tutorial
   - mathematics

@@ -1,11 +1,12 @@
 ---
 title: 'MIWs AutoFit -- Tutorial 4 -- Procedural Fits'
 date: 2023-11-13
-permalink: /posts/miws_autofit_tutorial_4/
+permalink: /MIWs_AutoFit_Tutorial_4/
+author_profile: true
 tags:
   - tutorial
   - mathematics
-  - statistic
+  - statistics
   - curve fitting
   - MIW's AutoFit
 ---

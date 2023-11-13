@@ -1,7 +1,8 @@
 ---
 title: 'MIWs AutoFit -- Tutorial 3 -- Brute Forcing'
 date: 2023-11-13
-permalink: /posts/miws_autofit_tutorial_3/
+permalink: /MIWs_AutoFit_Tutorial_3/
+author_profile: true
 tags:
   - tutorial
   - mathematics

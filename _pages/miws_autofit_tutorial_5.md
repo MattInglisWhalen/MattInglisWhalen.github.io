@@ -1,11 +1,12 @@
 ---
 title: 'MIWs AutoFit -- Tutorial 5 -- Manual Models'
 date: 2023-11-13
-permalink: /posts/miws_autofit_tutorial_5/
+permalink: /MIWs_AutoFit_Tutorial_5/
+author_profile: true
 tags:
   - tutorial
   - mathematics
-  - statistic
+  - statistics
   - curve fitting
   - MIW's AutoFit
 ---
