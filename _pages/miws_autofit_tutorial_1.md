@@ -29,7 +29,7 @@ image or the console area if you don't like the colour scheme.
 
 Now let's load up a dataset. The package should come with all the sample sets used in this tutorial, but if you can't 
 find it, we will also provide the files in these tutorial pages. Let's click load data and navigate to 
-<a href="https://github.com/MattInglisWhalen/MIW_AutoFit/blob/main/autofit/data/linear_data_yerrors.csv">
+<a href="https://github.com/MattInglisWhalen/MIW_AutoFit/autofit/data/linear_data_yerrors.csv">
 linear_data_yerrors.csv</a>.
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/new_opts.jpg">
@@ -46,7 +46,10 @@ parameters of your fit, along with their uncertainties. As in most physics appli
 after the ± symbol is the standard deviation of the mean. For more details about the methods used to find fits 
 and uncertainties, you can view the references page.
 
-Let's say you also have another linear dataset you want to plot. Click load data and select file example XLS 10.xls . 
+Let's say you also have another linear dataset you want to plot. Click load data and select file 
+<a href="https://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/example_XLS_10.xls">
+example_XLS_10.xls
+</a>
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/excel_input.jpg">
 
