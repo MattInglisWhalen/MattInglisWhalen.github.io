@@ -6,10 +6,10 @@ author_profile: true
 ---
 
 # Demos
-Try these models yourself! <span style="background-color:#88FF88">Available</span> 
-<span style="background-color:#FF8888">Work in progress</span>
+Try these models yourself!
+
 <details>
-<summary><span style="font-size:16.0pt;background-color:#88FF88">Natural Language Processing</span></summary>
+<summary><span style="font-size:16.0pt">Natural Language Processing</span></summary>
 
 <h3>Movie Review Sentiment <a href="http://ec2-18-216-26-152.us-east-2.compute.amazonaws.com">▶️</a></h3> 
 
@@ -28,25 +28,7 @@ GitHub repository</a>!
 
 </details>
 
-<details>
-<summary><span style="font-size:16.0pt;background-color:#FF8888">Time-Series Analysis</span></summary>
 
-</details>
-
-<details>
-<summary><span style="font-size:16.0pt;background-color:#FF8888">Audio Processing</span></summary>
-
-</details>
-
-<details>
-<summary><span style="font-size:16.0pt;background-color:#FF8888">Image Processing</span></summary>
-
-</details>
-
-
-# Project without Demos
-
-For various reasons these projects are not available through the web. 
 
 <details>
 <summary><span style="font-size:16.0pt;">Curve Fitting</span></summary>
