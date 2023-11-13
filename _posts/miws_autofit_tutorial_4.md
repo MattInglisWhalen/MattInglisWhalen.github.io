@@ -1,7 +1,7 @@
 ---
-title: 'MIWs AutoFit -- Tutorial 1'
+title: 'MIWs AutoFit -- Tutorial 4 -- Procedural Fits'
 date: 2023-11-13
-permalink: /posts/miws-autofit-tutorial-1/
+permalink: /posts/miws_autofit_tutorial_4/
 tags:
   - tutorial
   - mathematics
