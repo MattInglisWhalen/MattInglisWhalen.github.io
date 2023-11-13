@@ -1,0 +1,28 @@
+---
+title: "Posts"
+permalink: /posts/
+author_profile: true
+---
+
+## MIW's AutoFit Tutorials
+
+[Getting Started](https://mattingliswhalen.github.io/posts/miws-autofit-tutorial-1/)  
+[Special Functons](https://mattingliswhalen.github.io/posts/miws-autofit-tutorial-2/)  
+[Brute Forcing](https://mattingliswhalen.github.io/posts/miws-autofit-tutorial-3/)  
+[Procedural Fits](https://mattingliswhalen.github.io/posts/miws-autofit-tutorial-4/)
+[Manual Models](https://mattingliswhalen.github.io/posts/miws-autofit-tutorial-5/)  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
