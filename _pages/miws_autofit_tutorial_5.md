@@ -40,7 +40,7 @@ While in Procedural mode, let's head down to the custom function button in the b
 After clicking, we see a pop-up allowing us to create a new base function, which will be included in all subsequent
 compositions/products/sums when building a list of functional models to test. If we know that the model should be some
 bessel function of the first kind, implemented using the `scipy.stats.jv` function, we can declare this as a new 
-base function. Unfortunately AutoFit still is unable to fit two-parameter functions, so the first argument $$nu$$
+base function. Unfortunately AutoFit still is unable to fit two-parameter functions, so the first argument $$\nu$$
 for `jv` has to be input by hand.
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/bessel_custom_func.png">
@@ -74,8 +74,8 @@ clicking Find Fit, we see that AutoFit has found a local minimum for the chi-squ
 The global minimum can’t be reached from here using its search strategy. But notice that
 a set of sliders has appeared at the bottom of the window, where we can help it out by 
 adjusting its initial search parameters. Dragging these sliders up and down, we can see how the model would 
-appear with a new set of coefficients (Positive slider numbers show $$\log_10(arg)+5$$, while negative slider 
-numbers corresond to $$-\log_10(-arg)-5$$).
+appear with a new set of coefficients (These are in a signed-log scale: Positive slider numbers show $$\log_{10}(arg)+5$$, while negative slider 
+numbers corresond to $$-\log_{10}(-arg)-5$$).
 
 If you can manually find a set of parameters that looks "close enough" to a global optimum,
 
