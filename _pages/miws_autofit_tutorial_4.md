@@ -5,6 +5,15 @@ permalink: /MIWs_AutoFit_Tutorial_4/
 author_profile: true
 ---
 
+Tutorial Sections: 
+[1](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_1/) 
+[2](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_2/)
+[3](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_3/)
+[4](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_4/)
+[5](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_5/)
+
+---
+
 _So you’ve made it through the Brute-Forcing tutorial! If you were frustrated with how long the program takes to 
 find a good model, have understood how AutoFit contructs models from base functions, and you would like more control, 
 then this tutorial is for you! In this tutorial we show how to turn off and on certain base functions to create a  

@@ -5,6 +5,15 @@ permalink: /MIWs_AutoFit_Tutorial_3/
 author_profile: true
 ---
 
+Tutorial Sections: 
+[1](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_1/) 
+[2](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_2/)
+[3](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_3/)
+[4](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_4/)
+[5](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_5/)
+
+---
+
 _Hello and welcome to the third tutorial! Today we learn about the most exciting feature of MIW’s AutoFit — 
 finding a fit for a dataset when you don’t know which function your data should follow! In this lesson we learn 
 how to read AutoFit’s internal representation of a function in order to interpret the output of our 

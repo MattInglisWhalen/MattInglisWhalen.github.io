@@ -5,6 +5,15 @@ permalink: /MIWs_AutoFit_Tutorial_1/
 author_profile: true
 ---
 
+Tutorial Sections: 
+[1](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_1/) 
+[2](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_2/)
+[3](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_3/)
+[4](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_4/)
+[5](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_5/)
+
+---
+
 _In this tutorial we open and fit .csv and .xls data to a linear model, learn how AutoFit displays parameter
  estimates and uncertainties, see how to analyze multiple datasets at once, and discover the residuals button._
 

@@ -5,6 +5,15 @@ permalink: /MIWs_AutoFit_Tutorial_5/
 author_profile: true
 ---
 
+Tutorial Sections: 
+[1](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_1/) 
+[2](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_2/)
+[3](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_3/)
+[4](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_4/)
+[5](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_5/)
+
+---
+
 _Now that you’ve made it through the procedural models tutorial, we can discuss constructing our own models._
 
 ---
@@ -59,16 +68,23 @@ AutoFit can’t find the correct fit for this dataset. Let’s try to help it ou
 
 Putting the model into the input field, validating that the input corresponds to a valid function, and 
 clicking Find Fit, we see that AutoFit has found a local minimum for the chi-squared of this model. 
-The global minimum can’t be reached from here using its search strategy, but we can help it out by 
-adjusting its initial search parameters.
 
-After a local optimum has been found, a set of sliders appears at the bottom of the window. These can be
-dragged up and down to show how the model would appear with a new set of coefficients. If you can manually find a 
-set of parameters that looks "close enough" to a global optimum, you can press the "Fit Data" once again to let 
-AutoFit do the rest.
+<img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/sinexp_failure.png">
+
+The global minimum can’t be reached from here using its search strategy. But notice that
+a set of sliders has appeared at the bottom of the window, where we can help it out by 
+adjusting its initial search parameters. Dragging these sliders up and down, we can see how the model would 
+appear with a new set of coefficients (Positive slider numbers show $$\log_10(arg)+5$$, while negative slider 
+numbers corresond to $$-\log_10(-arg)-5$$).
+
+If you can manually find a set of parameters that looks "close enough" to a global optimum,
+
+<img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/sinexp_close.png">
 
 
+you can press the "Fit Data" once again to let AutoFit do the rest.
 
+<img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/sinexp_snapped.png">
 
 ---
 

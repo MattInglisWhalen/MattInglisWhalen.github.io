@@ -5,6 +5,15 @@ permalink: /MIWs_AutoFit_Tutorial_2/
 author_profile: true
 ---
 
+Tutorial Sections: 
+[1](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_1/) 
+[2](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_2/)
+[3](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_3/)
+[4](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_4/)
+[5](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_5/)
+
+---
+
 _Thanks for joining the second tutorial! Today we learn about polynomials,
 sigmoid functions, histograms, and Gaussians._
 
