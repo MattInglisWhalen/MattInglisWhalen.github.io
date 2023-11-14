@@ -20,19 +20,18 @@ these building blocks aren't enough? AutoFit allows you to define functions base
 that 
 
 1. the code uses no spaces
-2. the code you wish to use is base Python, or from the numpy or scipy packages
+2. the code you wish to use is base Python, or from the numpy (np) or scipy (scipy.stats or scipy.special) packages
 
 A fairly common function that isn't considered simple is 0th-order Bessel Function of the first kind, $$J_0(x)$$. 
 Loading up a dataset
 <a href="http://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/bessel_data.csv">
 bessel_data.csv⭳
-</a>, generated with this function, we can first try to fit this function using a 
+</a> generated with this function, we can first try to fit this function using a 
 combination of exponentials and trigonometric base functions.
 A reduced chi-squared of 11.83 isn't too good, and the residuals are decidedly in favour of this model 
 `sin(pow1)+exp(pow1)` not being the correct function for this dataset.
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/bessel_proc.png">
-
 
 While in Procedural mode, let's head down to the custom function button in the bottom left of the window. 
 After clicking, we see a pop-up allowing us to create a new base function, which will be included in all subsequent
@@ -45,8 +44,8 @@ we get a good fit for the data
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/bessel_bessel.png">
 
-
-Let’s examine the dataset 
+Another issue that might arise is that AutoFit's search algorithm fails to find a global minimum for a model 
+that actually described the data very well. Let’s examine the dataset 
 <a href="http://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/sudakov.csv">
 sinexp.csv⭳
 </a> generated with the function
@@ -61,6 +60,13 @@ Putting the model into the input field, validating that the input corresponds to
 clicking Find Fit, we see that AutoFit has found a local minimum for the chi-squared of this model. 
 The global minimum can’t be reached from here using its search strategy, but we can help it out by 
 adjusting its original search parameters.
+
+After a local optimum has been found, a set of sliders appears at the bottom of the window. These can be
+dragged up and down to show how the model would appear with a new set of coefficients. If you can manually find a 
+set of parameters that looks "close enough" to a global optimum, you can press the "Fit Data" once again to let 
+AutoFit do the rest.
+
+
 
 
 ---
