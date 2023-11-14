@@ -23,18 +23,27 @@ that
 2. the code you wish to use is base Python, or from the numpy or scipy packages
 
 A fairly common function that isn't considered simple is 0th-order Bessel Function of the first kind, $$J_0(x)$$. 
-Loading up a dataset generated with this function, 
-
+Loading up a dataset
 <a href="http://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/bessel_data.csv">
 bessel_data.csv⭳
-</a>, we can first try to fit this function using a combination of exponentials and trigonometric base functions.
+</a>, generated with this function, we can first try to fit this function using a 
+combination of exponentials and trigonometric base functions.
 A reduced chi-squared of 11.83 isn't too good, and the residuals are decidedly in favour of this model 
 `sin(pow1)+exp(pow1)` not being the correct function for this dataset.
+
+<img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/bessel_proc.png">
+
 
 While in Procedural mode, let's head down to the custom function button in the bottom left of the window. 
 After clicking, we see a pop-up allowing us to create a new base function, which will be included in all subsequent
 compositions/products/sums when building a list of functional models to test.
 
+<img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/bessel_custom_func.png">
+
+Now when we run the procedural fit for this dataset (ensuring that the custom functions checkbox has a checkmark), 
+we get a good fit for the data
+
+<img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/bessel_bessel.png">
 
 
 Let’s examine the dataset 
