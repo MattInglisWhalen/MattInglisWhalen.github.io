@@ -1,6 +1,6 @@
 ---
 title: "MIW's AutoFit -- Tutorial 2 -- Special Functions"
-date: 2023-11-13
+date: 2023-11-14
 permalink: /MIWs_AutoFit_Tutorial_2/
 author_profile: true
 tags:
@@ -19,7 +19,7 @@ sigmoid functions, histograms, and Gaussians._
 Let’s make sure AutoFit has a fresh start so we’re all on the same page. After closing the window, open AutoFit again 
 and load up 
 <a href="http://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/logistic.csv">
-logistic.csv
+logistic.csv⭳
 </a>. When we fit the data, it looks decent enough, but if you care to look at the residuals, 
 at least one of the measures on the console will tell you that the fit isn’t quite right, meaning the data might 
 have features which are not reflected in the linear model we have chosen.
@@ -51,7 +51,7 @@ which you should also be able to see in the console area.
 
 Next let’s do something a bit different. Load in random sample from 
 <a href="http://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/normal_distribution.csv">
-normal_distribution.csv
+normal_distribution.csv⭳
 </a>. This is just a list of numbers, but AutoFit will find an appropriate bin size 
 to make a nice histogram of the data.
 
@@ -60,7 +60,6 @@ Normal distributions, try estimating by eye the mean and the standard deviation 
 before moving on to the next step.
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/normal_sigmoid.jpg">
-
 
 Now change the fit-type dropdown list to Gaussian. You should get a beautiful fit, showing a mean 
 of 5 and a standard deviation of 2, give or take.

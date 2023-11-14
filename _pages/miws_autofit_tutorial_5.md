@@ -1,6 +1,6 @@
 ---
 title: 'MIWs AutoFit -- Tutorial 5 -- Manual Models'
-date: 2023-11-13
+date: 2023-11-17
 permalink: /MIWs_AutoFit_Tutorial_5/
 author_profile: true
 tags:

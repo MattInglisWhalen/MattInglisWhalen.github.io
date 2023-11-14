@@ -30,7 +30,8 @@ image or the console area if you don't like the colour scheme.
 Now let's load up a dataset. The package should come with all the sample sets used in this tutorial, but if you can't 
 find it, we will also provide the files in these tutorial pages. Let's click load data and navigate to 
 <a href="http://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/linear_data_yerrors.csv">
-linear_data_yerrors.csv</a>.
+linear_data_yerrors.csv⭳
+</a>.
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/new_opts.jpg">
 
@@ -48,7 +49,7 @@ and uncertainties, you can view the references page.
 
 Let's say you also have another linear dataset you want to plot. Click load data and select file 
 <a href="http://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/example_XLS_10.xls">
-example_XLS_10.xls
+example_XLS_10.xls⭳
 </a>
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/excel_input.jpg">
@@ -74,9 +75,7 @@ for this average fit.
 
 Finally, let's load up one more dataset to showcase the Show Residuals button. Opening and fitting 
 <a href="http://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/linear_data_multiple_measurements.csv">
-example_XLS_10.xls
-</a>
-linear_data_multiple_measurements.csv
+linear_data_multiple_measurements.csv⭳
 </a>, we see that multiple measurements have been made at each x-value. Now click Show Residuals.
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/residuals.jpg">
