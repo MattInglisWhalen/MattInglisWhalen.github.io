@@ -3,12 +3,6 @@ title: 'MIWs AutoFit -- Tutorial 3 -- Brute Forcing'
 date: 2023-11-15
 permalink: /MIWs_AutoFit_Tutorial_3/
 author_profile: true
-tags:
-  - tutorial
-  - mathematics
-  - statistics
-  - curve fitting
-  - MIW's AutoFit
 ---
 
 _Hello and welcome to the third tutorial! Today we learn about the most exciting feature of MIW’s AutoFit — 

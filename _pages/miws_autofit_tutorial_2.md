@@ -3,12 +3,6 @@ title: "MIW's AutoFit -- Tutorial 2 -- Special Functions"
 date: 2023-11-14
 permalink: /MIWs_AutoFit_Tutorial_2/
 author_profile: true
-tags:
-  - tutorial
-  - mathematics
-  - statistics
-  - curve fitting
-  - MIW's AutoFit
 ---
 
 _Thanks for joining the second tutorial! Today we learn about polynomials,

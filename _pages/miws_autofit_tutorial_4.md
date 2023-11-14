@@ -3,18 +3,12 @@ title: 'MIWs AutoFit -- Tutorial 4 -- Procedural Fits'
 date: 2023-11-16
 permalink: /MIWs_AutoFit_Tutorial_4/
 author_profile: true
-tags:
-  - tutorial
-  - mathematics
-  - statistics
-  - curve fitting
-  - MIW's AutoFit
 ---
 
 _So you’ve made it through the Brute-Forcing tutorial! If you were frustrated with how long the program takes to 
 find a good model, have understood how AutoFit contructs models from base functions, and you would like more control, 
 then this tutorial is for you! In this tutorial we show how to turn off and on certain base functions to create a  
-more streamlined search in the space of possible models.
+more streamlined search in the space of possible models._
 
 ---
 

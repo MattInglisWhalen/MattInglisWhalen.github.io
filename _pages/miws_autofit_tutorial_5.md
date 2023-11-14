@@ -3,15 +3,9 @@ title: 'MIWs AutoFit -- Tutorial 5 -- Manual Models'
 date: 2023-11-17
 permalink: /MIWs_AutoFit_Tutorial_5/
 author_profile: true
-tags:
-  - tutorial
-  - mathematics
-  - statistics
-  - curve fitting
-  - MIW's AutoFit
 ---
 
-Now that you’ve made it through the procedural models tutorial, we can discuss constructing our own models.
+_Now that you’ve made it through the procedural models tutorial, we can discuss constructing our own models._
 
 ---
 
@@ -31,11 +25,14 @@ combination of exponentials and trigonometric base functions.
 A reduced chi-squared of 11.83 isn't too good, and the residuals are decidedly in favour of this model 
 `sin(pow1)+exp(pow1)` not being the correct function for this dataset.
 
-<img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/bessel_proc.png">
+<img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/bessel_best_proc.png">
 
 While in Procedural mode, let's head down to the custom function button in the bottom left of the window. 
 After clicking, we see a pop-up allowing us to create a new base function, which will be included in all subsequent
-compositions/products/sums when building a list of functional models to test.
+compositions/products/sums when building a list of functional models to test. If we know that the model should be some
+bessel function of the first kind, implemented using the `scipy.stats.jv` function, we can declare this as a new 
+base function. Unfortunately AutoFit still is unable to fit two-parameter functions, so the first argument $$nu$$
+for `jv` has to be input by hand.
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/bessel_custom_func.png">
 
@@ -44,8 +41,12 @@ we get a good fit for the data
 
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/bessel_bessel.png">
 
+If you would like to remove a custom-made base function from the list of custom functions, 
+you'll have to navigate to `frontend.cfg` in your installation directory and manually remove the corresponding entries
+next to the #CUSTOM_NAMES and #CUSTOM_FORMS tags.
+
 Another issue that might arise is that AutoFit's search algorithm fails to find a global minimum for a model 
-that actually described the data very well. Let’s examine the dataset 
+that actually describes the data very well. Let’s examine the dataset 
 <a href="http://mattingliswhalen.github.io/data/MIWsAutoFitTutorial/sudakov.csv">
 sinexp.csv⭳
 </a> generated with the function
@@ -59,7 +60,7 @@ AutoFit can’t find the correct fit for this dataset. Let’s try to help it ou
 Putting the model into the input field, validating that the input corresponds to a valid function, and 
 clicking Find Fit, we see that AutoFit has found a local minimum for the chi-squared of this model. 
 The global minimum can’t be reached from here using its search strategy, but we can help it out by 
-adjusting its original search parameters.
+adjusting its initial search parameters.
 
 After a local optimum has been found, a set of sliders appears at the bottom of the window. These can be
 dragged up and down to show how the model would appear with a new set of coefficients. If you can manually find a 

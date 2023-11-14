@@ -3,12 +3,6 @@ title: 'MIWs AutoFit -- Tutorial 1 -- Getting Started'
 date: 2023-11-13
 permalink: /MIWs_AutoFit_Tutorial_1/
 author_profile: true
-tags:
-  - tutorial
-  - mathematics
-  - statistics
-  - curve fitting
-  - MIW's AutoFit
 ---
 
 _In this tutorial we open and fit .csv and .xls data to a linear model, learn how AutoFit displays parameter
