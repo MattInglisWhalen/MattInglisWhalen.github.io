@@ -38,7 +38,7 @@ GitHub repository</a>!
 <h3>MIW's AutoFit <a href="http://ec2-18-216-26-152.us-east-2.compute.amazonaws.com/MIWs_AutoFit_demo">▶️</a></h3>
 
 <a href="http://ec2-18-216-26-152.us-east-2.compute.amazonaws.com/MIWs_AutoFit_demo">
-  <img src="[https://mattingliswhalen.github.io/images/prestige.png](https://ingliswhalen.files.wordpress.com/2023/11/64862-splash.png)">
+  <img src="https://ingliswhalen.files.wordpress.com/2023/11/64862-splash.png">
 </a>
 
 <br>
