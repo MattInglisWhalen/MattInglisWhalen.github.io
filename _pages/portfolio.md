@@ -20,7 +20,7 @@ Try these models yourself!
 <br>
 
 A small project for me to learn how to deploy models to a server. 
-Here a simple bag-of-words model to predict the sentiment of a provided movie review. 
+Here a simple bag-of-words model predicts the overall sentiment of a user-provided movie review. 
 
 <a href="http://ec2-18-216-26-152.us-east-2.compute.amazonaws.com/mrs_demo">
 Try it out yourself</a>
