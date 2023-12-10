@@ -5,6 +5,8 @@ permalink: /portfolio/
 author_profile: true
 ---
 
+---
+
 # Demos
 Try these models yourself!
 
@@ -48,6 +50,8 @@ Downloads, implementation details, and tutorials are available
 <a href="https://github.com/MattInglisWhalen/MIW_AutoFit">
 in this GitHub repository</a>.
 </details>
+
+---
 
 
 # Exploratory Analysis and Predictive Modelling
