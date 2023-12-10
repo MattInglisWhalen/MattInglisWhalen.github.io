@@ -9,11 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-Projects
-======
-* Future: Transformers in NLP / computer vision / 
-* 2023 : Daily London Weather -- Comparing models when seasonal periods are long
-* 2022-2023 : MIW's AutoFit -- A desktop app to automatically find the best function to fit a given dataset
 
 Education
 ======

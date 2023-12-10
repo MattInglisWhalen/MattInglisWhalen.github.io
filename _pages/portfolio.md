@@ -7,7 +7,7 @@ author_profile: true
 
 ---
 
-# Demos
+## Demos
 Try these models yourself!
 
 <details>
@@ -54,7 +54,7 @@ in this GitHub repository</a>.
 ---
 
 
-# Exploratory Analysis and Predictive Modelling
+## Exploratory Analysis and Predictive Modelling
 
 <details> 
 <summary> Recipe Site Traffic </summary>
