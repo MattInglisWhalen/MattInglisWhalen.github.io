@@ -4,10 +4,12 @@
 # which you are expected to set up once and rarely need to edit after that.
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
-#
+
+########################################################################################################################
 # Future-Matt: run the following command in ruby from .../GitHub/mattingliswhalen.github.io to build the site
 # bundle exec jekyll serve
 # N.B: make sure you are running Ruby as Administrator!
+########################################################################################################################
 
 # Site Settings
 locale                   : "en-US"
