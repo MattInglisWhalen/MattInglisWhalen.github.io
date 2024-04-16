@@ -4,7 +4,6 @@ permalink: /blog/
 author_profile: true
 ---
 
-## Most Recent
 
 2024-04 [Clustering points in 2D -- From LHC to Art Exhibits](https://mattingliswhalen.github.io/blog/2024-04-08--2D-Clusters)
 
