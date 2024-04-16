@@ -63,7 +63,7 @@ $$d_i = 1/E_i^2$$
 
 We also calculate, for each pair of pseudos, the "distance measure"
 
-$$d_{ij} = min(d_i,d_j) \frac{|\vec{r_i}-\vec{r}_j|^2}{R^2}$$
+$$d_{ij} = \min(d_i,d_j) \frac{|\vec{r_i}-\vec{r}_j|^2}{R^2}$$
 
 where $$R$$ is an arbitrary parameter for the algorithm and in effect decides the radius of a cluster. Then, comparing all
 discriminators and all distance measures, a choice is made. If a distance measure $$d_{ij}$$ is the smallest,
@@ -95,7 +95,7 @@ With these parameters we get the following clustering for the sample data:
 
 It doesn't look terrible, but when a heatmap is overlayed,
 
-<img src="https://mattingliswhalen.github.io/images/2024_04_08/antikt_clusters_heatmap_smoothed.png">
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/antikit_clusters_heatmap_smoothed.png">
 
 the drawbacks of this approach become apparent. Based on the heatmap, the circles denoting the clusters
 are the wrong size, shape, and location for this dataset. Of course the parameters could be better tuned, but it's 
@@ -128,7 +128,7 @@ $$S(\vec{r}) = N_\sigma(\vec{r}) ~ A \exp\left[-\frac{\vec{r}^2}{2\sigma^2}\righ
 
 we get that, after using the definition of a 2D convolution, the density is
 
-$$\rho(\vec{r}) = A \sum_{i=1}^{N} \exp\left[-\frac{(\vec{r}-\vec{r}_i)^2}{2\sigma^2\right] $$.
+$$\rho(\vec{r}) = A \sum_{i=1}^{N} \exp\left[-\frac{(\vec{r}-\vec{r}_i)^2}{2\sigma^2}\right] $$.
 
 The normalization factor $$A$$ is then chosen to keep all densities in the interval $$0<\rho(\vec{r})<1$$.
 
