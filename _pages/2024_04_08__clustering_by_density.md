@@ -144,7 +144,7 @@ circles should be $$A=N\cdot\pi d^2$$. Rearranging for the distance estimate $$d
 
 Using this distance $$d$$ as an estimate for the smear parameter $$\sigma$$, we now have a heatmap
 
-<img src="https://mattingliswhalen.github.io/images/2024_04_08/blurred_high_density_heatmap.png">
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/blurred_high_density_heatmap_border.png">
 
 But how do we identify the peaks? They're quite clear to the human eye, but to a computer it's less obvious. 
 With the usual starting idea of gradient ascent, how might we guarantee that all maxima are found? 
@@ -152,10 +152,22 @@ Over a finite region, we could initialize a grid of starting seeds that evolve t
 feels numerically inefficient. After all, a starting grid would have to be fairly fine-grained to ensure all
 peaks are found, and while the ascent algorithm is fairly fast, applying that algorithm to each of the $$N \times N$$
 seeds would be very slow. Well if we're sampling a grid of points in the first place, we might as well just use those
-points themselves to find the peaks. If we coarse grain the grid, and also the density, an exhaustive search on a finite
+points themselves to find the peaks. If we coarse grain the grid, an exhaustive search on a finite
 area becomes relatively efficient.
 
-<img src="https://mattingliswhalen.github.io/images/2024_04_08/_low_density_heatmap.png">
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/low_density_heatmap.png">
+
+Finding a local maximum on a discretized domain is relatively easy: you just look for the pixels that have a higher
+density than its four nearest neighbours.
+
+[There they are]
+
+But what about the extent of each peak? The lower-left peak is clearly longer than the upper-right peak, and it's
+tilted a little. Well if we also disretize the density to, say, 10 distinct intervals ($$0<\rho<0.1, ..., 0.9<\rho<1),
+then we can count all contiguous pixels that lie in the same interval as the peak as being in the peak's "cluster",
+and we should be done!
+
+[Pixellized and discretized]
 
 Once I realized I wanted to work with a coarse-grained heatmap, the first mistake I made was 
 Numerical
