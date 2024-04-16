@@ -32,9 +32,8 @@ of popular photo locations. My wife and I talk a lot about how to approach data 
 particle physics experiments often need to form clusters and count clusters. She sent me the data to play around with,
 and so here we are: finding and counting clusters of 2D datapoints. Since her own analysis is not yet published, 
 I'll be using 
-<a href="http://mattingliswhalen.github.io/data/2024_04_08/sample_data.csv">
-dummy data⭳
-</a> to showcase the algorithms.
+[dummy data⭳](http://mattingliswhalen.github.io/data/2024_04_08/sample_data.csv)
+to showcase the algorithms.
 
 ## The Physics Approach to Clustering
 
