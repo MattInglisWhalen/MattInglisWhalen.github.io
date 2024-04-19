@@ -51,6 +51,8 @@ famous jet definition is called the "anti-kT algorithm".
 
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/antikt.png">
 
+### The Anti-$$k_T$$ Algorithm
+
 Notating the 2D position of a point $$n$$ as $$\vec{r}_n$$, imagine we are given a set of $$N$$ points {$$\vec{r}_n$$}. 
 To each point we assign an "energy" $$E_n = 1/N$$ such that the energies sum to 1. We begin by forming a list of
 "pseudo clusters" {$$p_n$$}, defined initially as the pair
@@ -90,6 +92,8 @@ assignments to each point, a cluster's energy corresponds to the proportion of p
 If we expect to see a maximum of, say, 5 clusters, then the average energy of those
 5 clusters should be around 0.2. So we might set $E_\mathrm{cut} = 0.2$.
 
+### Performance
+
 With these parameters we get the following clustering for the sample data:
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/antikt_clusters_colorless.png">
 
@@ -117,6 +121,8 @@ somehow merge, and that the lower-left cluster would not be considered a cluster
 
 Well, if we're judging the goodness of an algorithm based off how well it compares to a heatmap, we might as well
 just use the heatmap itself. Let's first define how we're generating a heatmap in the first place.
+
+### Heatmaps
 
 Heatmaps are made by taking the raw datapoints and "smearing" them a little to get a continuous 2D density distribution. 
 Mathematically, the density $$\rho$$ is a function of the 2D position $$\vec{r}$$ and is given by the 2D
@@ -153,6 +159,8 @@ circles should be $$A=N\cdot\pi d^2$$. Rearranging for the distance estimate $$d
 
 Using this distance $$d$$ as an estimate for the smear parameter $$\sigma$$, we get the heatmaps that are shown above in
 the previous section.
+
+### Peak Finding
 
 But how do we identify the peaks? They're quite clear to the human eye, but to a computer it's less obvious. 
 With the usual starting idea of [gradient ascent](https://en.wikipedia.org/wiki/Gradient_descent), 
@@ -212,11 +220,48 @@ at a threshold density of 0.8, the higher density pixels flood into those pixels
 and the pixels that survive are considered
 to be a cluster.
 
-<img src="https://mattingliswhalen.github.io/images/2024_04_08/flood_algo.gif">
+<p style="text-align:center;">
+<img align="center" src="https://mattingliswhalen.github.io/images/2024_04_08/flood_algo.gif">
+</p>
 
-### Size and Orientatiom
+### Visualizing Size and Orientation
 
-### 
+Once all the contiguous pixels of a peak have been identified and collected, it's important to be able to visualize
+their location, size, and orientation. A famous way to get orientation information from (x,y) data is by
+fitting a linear regression $$y = mx+b$$ to the data. The estimate for the slope is given in terms of the covariance
+
+$$\hat{m} = \frac{\mathrm{Cov}[X,Y]}{\mathrm{Cov}[X,X]}$$
+
+The length we assign to the cluster will be determined by the maximum extent of the pixels *along* this slope, 
+while the assigned width will be the maximum extent *perpendicular* to this slope. Working with 
+parallel and perpendicular distances is easier after rotating to a basis where the best-fit slope is zero, so we need
+the angle the slope makes with the x-axis. Since 
+$$ \hat{m} = \mathrm{rise}/\mathrm{run} = \Delta y / \Delta x = \tan(\theta)$$, 
+we can associate an angle to the cluster of pixels forming the peak. Then using the standard rotation matrices, 
+the new transformed coordinates are 
+
+$$ \xi = \ x \cos(\theta) - y \sin(\theta)$$
+
+$$ \eta = -x \sin(\theta) + y \cos(\theta) $$
+
+The length of the cluster is then $$L = [\max(\xi) - \min(\xi)]/2$$ and the width of the cluster is
+$$W[\max(\eta) - \min(\eta)]/2$$. Since I'm used to using ellipses to denote 95%-confidence regions of 2D Gaussians,
+I'll also use ellipses here. I imagine, however, that a couple of orthogonal lines would also do the trick.
+I'll therefore assign the length and width to be the semi-major and semi-minor axes of an ellipse for plotting.
+
+
+Note that in the above image I also scale both ellipse axes by a constant factor based on the height of the peak,
+in order to better capture the total "mass" of the density distribution. In a standard normal distribution, the
+maximum height of a peak scales like $$h_\mathrm{max} ~ {1}{\sigma}$
+
+I'm also interested in capturing the "mass"
+and I'll account for the height of 
+
+
+Once an angle is found, further manipulations
+can be performed to determine the length of the peak along that the semi-minor and semi-major axes of an ellipse 
+
+### Making an R Package
 
 After asking by wife about typical practices in her lab, I learned that her colleagues typically use R or Matlab to 
 program their analyses, but that Matlab is being phased out due to licensing fees. 
