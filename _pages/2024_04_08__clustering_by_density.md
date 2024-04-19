@@ -5,6 +5,10 @@ permalink: /blog/2024-04-08--2D-Clusters
 author_profile: true
 ---
 
+
+
+<h6 align="right">Reading time: 20 minutes</h6> 
+
 *Where'd you get the idea, Matt?*
 
 My wife works as a psychology researcher studying vision and its interplay with the other senses. 
@@ -171,31 +175,33 @@ density than its four nearest neighbours.
 
 The green dots here represent all the local maxima. There are a few issues, however, with this peak-finding
 prescription.
-1. See how the upper-right overdensity has two nearly adjacent maxima? They should be part of the same 
+1. See how the orange overdensity has two nearly adjacent maxima? They should be considered to be part of the same 
 overdensity region
-2. The bottom-left green peak should be part of the overdensity region connected to the orange peak.
-3. There is no information about the size or orientation of an overdensity region 
-The lower-left overdensity is clearly longer than the upper-right peak, and it's
-tilted a little. Well if we also disretize the density to, say, the 11 decimal-rounded intervals 
-($$0<\rho<0.05, 0.05<\rho<0.15, ..., 0.95<\rho<1),
-then we can count all contiguous pixels that lie in the same interval as the peak as being in the peak's "cluster",
-and we should be done!
+2. The bottom-left green peak should be part of the overdense region connected to the orange peak.
+3. There is no information about the size or orientation of an overdensity region
 
+The first two issues are a matter of unfortunate noise in the density distribution, and the last issue 
+should come down to being able to
+identify which pixels near a peak are also close in density to that peak. These 3 issues can be solved at once 
+by discretizing the allowable densities. Choosing the 11 decimal-rounded intervals, we get
+($$0<\rho<0.05, 0.05<\rho<0.15, ..., 0.95<\rho<1),
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/heatmap_coarse_discretized.png">
 
-Once I realized I wanted to work with a coarse-grained heatmap, the first mistake I made was 
-Numerical
-maximization is a notoriously difficult problem to solve in general: algorithms
-can become stuck in local minima, fai
+This seems to solve the 3 issues enumerated above! The original two orange peaks have merged, the spurious 
+bottom-left peak no longer looks like a peak, and the size of the merged peak regions give a rough size and orientation
+of the cluster.
+
+Okay but now that we've discretized in density, a simple nearest-neighbour approach to finding maxima won't work. 
+And I quickly discovered that if a pixel is a peak in both its row and its column, that does not mean that it is 
+part of an overdensity peak. For example, consider this pixel here
 
 
-Technically speaking, we're treating
-the 
 
 After asking about typical practices in my wife's lab, she said that her colleagues typically use R or Matlab to 
 program their analyses, but that Matlab is being phased out due to licensing fees. 
 So I jumped right in to solving the problem, but also to make the solution available everywhere by making it
 an installable R package.
 
-To protect the data of yet-to-be-published work, I've created a dummy dataset that can be downloaded
-I was recently asked to look at a dataset containing the locations of 
+
+
+Tags: #peak-finding #R #ClusterByDensity #clustering 
