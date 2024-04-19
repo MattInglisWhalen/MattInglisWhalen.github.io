@@ -214,7 +214,7 @@ at a threshold density of 0.8, the higher density pixels flood into those pixels
 and the pixels that survive are considered
 to be a cluster.
 
-<img src="https://mattingliswhalen.github.io/images/2024_04_08/heatmap_coarse.png">
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/flood_algo.png">
 
 ### Size and Orientatiom
 
