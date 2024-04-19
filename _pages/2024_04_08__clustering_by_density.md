@@ -185,6 +185,7 @@ should come down to being able to
 identify which pixels near a peak are also close in density to that peak. These 3 issues can be solved at once 
 by discretizing the allowable densities. Choosing the 11 decimal-rounded intervals, we get
 ($$0<\rho<0.05, 0.05<\rho<0.15, ..., 0.95<\rho<1),
+
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/heatmap_coarse_discretized.png">
 
 This seems to solve the 3 issues enumerated above. The original two orange peaks have merged, the spurious 
