@@ -187,19 +187,42 @@ by discretizing the allowable densities. Choosing the 11 decimal-rounded interva
 ($$0<\rho<0.05, 0.05<\rho<0.15, ..., 0.95<\rho<1),
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/heatmap_coarse_discretized.png">
 
-This seems to solve the 3 issues enumerated above! The original two orange peaks have merged, the spurious 
+This seems to solve the 3 issues enumerated above. The original two orange peaks have merged, the spurious 
 bottom-left peak no longer looks like a peak, and the size of the merged peak regions give a rough size and orientation
 of the cluster.
 
 Okay but now that we've discretized in density, a simple nearest-neighbour approach to finding maxima won't work. 
-And I quickly discovered that if a pixel is a peak in both its row and its column, that does not mean that it is 
-part of an overdensity peak. For example, consider this pixel here
+I quickly discovered that if a pixel is a peak in both its row and its column, that does not mean that it is 
+part of an actual peak. For example, consider this pixel here
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/pixel_cross.png">
 
+Along both the horizontal and vertical black lines it has the highest (discretized) density, apparently forming
+a peak in both the x- and y-directions. But its left- and 
+down-adjacent pixels, which share this apparent peak density, are clearly not peaks because they themselves 
+are adjacent to pixels with a higher density.
 
+If the higher-density regions could flood into adjacent, lower-density regions, then those lower density
+regions could be removed as candidates for a density peak.
+This is the way I've approached peak-identification. For each threshold (the possible discretized densities 
+{0.0,0.1,...,0.9,1.0}), all pixels at that threshold are considered to be a candidate to be a peak. Then a flood-fill
+algorithm progressively removes pixels as candidates if the candidate is adjacent to a pixel with a higher density.
+Those pixels remaining after the flood are the true peaks at that threshold.
 
-After asking about typical practices in my wife's lab, she said that her colleagues typically use R or Matlab to 
+Below I showcase this flood-fill with the same data, but with a slightly larger smearing size. When looking for peaks
+at a threshold density of 0.8, the higher density pixels flood into those pixels, 
+and the pixels that survive are considered
+to be a cluster.
+
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/heatmap_coarse.png">
+
+### Size and Orientatiom
+
+### 
+
+After asking by wife about typical practices in her lab, I learned that her colleagues typically use R or Matlab to 
 program their analyses, but that Matlab is being phased out due to licensing fees. 
-So I jumped right in to solving the problem, but also to make the solution available everywhere by making it
+While I had written most of the anti-kT code in Python, I was glad for an opportunity to practice my R skills, and 
+thought it would be good practice make the solution available everywhere by making it
 an installable R package.
 
 
