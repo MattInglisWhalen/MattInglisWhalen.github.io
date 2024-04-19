@@ -94,15 +94,16 @@ With these parameters we get the following clustering for the sample data:
 The circles denote the regions wherein a newly-added infinitesimally energetic point would join that cluster.
 It doesn't look terrible, but when a heatmap is overlaid,
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/antikt_2_smooth.png">
+
 the drawbacks of this approach begin to appear. Based on the heatmap, the circles denoting the clusters
 are the wrong size and shape. Of course the parameters could be better tuned, but it's 
 finnicky: changing $$E_\mathrm{cut}$$ to 0.1 in order to capture some more of the overdense regions, 
 the algorithm gives another cluster.
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/antikt_3_smooth.png">
 
-Alternatively changing the radius to $$R=0.3\,m$$ to account for the heatmap's apparent clusters size, and accordingly
-decreasing the cutoff to $$E_\mathrm{cut}=0.05$$ to account for the smaller proportion of points smaller clusters, we see
-a better capturing of peak locations
+Alternatively changing the radius to $$R=0.3\,m$$ to account for the heatmap's apparent cluster size, and accordingly
+decreasing the cutoff to $$E_\mathrm{cut}=0.05$$ to account for the smaller proportion of points in
+smaller clusters, we see a good agreement of the clustering with the overdensities on the heatmap
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/antikt_5_smooth.png">
 
 However, there are now two overlapping clusters associated with the overdense region connected to the orange peak.
@@ -134,7 +135,7 @@ $$S(\vec{r}) = N_\sigma(\vec{r}) ~ A \exp\left[-\frac{\vec{r}^2}{2\sigma^2}\righ
 
 we get that, after using the definition of a 2D convolution, the density is
 
-$$\rho(\vec{r}) = A \sum_{i=1}^{N} \exp\left[-\frac{(\vec{r}-\vec{r}_i)^2}{2\sigma^2}\right] $$.
+$$\rho(\vec{r}) = A \sum_{i=1}^{N} \exp\left[-\frac{(\vec{r}-\vec{r}_i)^2}{2\sigma^2}\right] .$$
 
 The normalization factor $$A$$ is then chosen to keep all densities in the interval $$0<\rho(\vec{r})<1$$.
 
@@ -146,7 +147,7 @@ datapoints. If we find the minimum and maximum x and y values of our dataset, th
 $$A = (x_\mathrm{max}-x_\mathrm{min})(y_\mathrm{max}-y_\mathrm{min})$$. At the same time, let's assume that our dataset
 consists of $$N$$ points that are spaced uniformly, each with a distance $$d$$ from their nearest neighbour. We should then
 be picturing $$N$$ circles with radius $$d$$, with each circle containing a single point, and the net area of these
-circles should be $$A=N\cdot\pi d^2$$. Rearranging for the distance estimate $$d$$, we get $$d=\sqrt{A/2\pi N}$$.
+circles should be $$A=N\cdot\pi d^2$$. Rearranging for the distance estimate $$d$$, we get $$d=\sqrt{A/\pi N}$$.
 
 Using this distance $$d$$ as an estimate for the smear parameter $$\sigma$$, we get the heatmaps that are shown above in
 the previous section.
