@@ -34,7 +34,6 @@ and so here we are: finding and counting clusters of 2D datapoints. Since her ow
 I'll be using 
 [dummy data⭳](http://mattingliswhalen.github.io/data/2024_04_08/sample_data.csv), shown below,
 to showcase the algorithms.
-
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/raw_points.png">
 
 
@@ -90,19 +89,26 @@ If we expect to see a maximum of, say, 5 clusters, then the average energy of th
 5 clusters should be around 0.2. So we might set $E_\mathrm{cut} = 0.2$.
 
 With these parameters we get the following clustering for the sample data:
-
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/antikt_clusters_colorless.png">
 
-It doesn't look terrible, but when a heatmap is overlayed,
+The circles denote the regions wherein a newly-added infinitesimally energetic point would join that cluster.
+It doesn't look terrible, but when a heatmap is overlaid,
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/antikt_2_smooth.png">
+the drawbacks of this approach begin to appear. Based on the heatmap, the circles denoting the clusters
+are the wrong size and shape. Of course the parameters could be better tuned, but it's 
+finnicky: changing $$E_\mathrm{cut}$$ to 0.1 in order to capture some more of the overdense regions, 
+the algorithm gives another cluster.
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/antikt_3_smooth.png">
 
-<img src="https://mattingliswhalen.github.io/images/2024_04_08/antikit_clusters_heatmap_smoothed.png">
+Alternatively changing the radius to $$R=0.3\,m$$ to account for the heatmap's apparent clusters size, and accordingly
+decreasing the cutoff to $$E_\mathrm{cut}=0.05$$ to account for the smaller proportion of points smaller clusters, we see
+a better capturing of peak locations
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/antikt_5_smooth.png">
 
-the drawbacks of this approach become apparent. Based on the heatmap, the circles denoting the clusters
-are the wrong size, shape, and location for this dataset. Of course the parameters could be better tuned, but it's 
-finnicky: changing $$E_\mathrm{cut}$$ to 0.1 leads to another (spurious) cluster, while changing the radius only 
-a little to $$R=0.5\,m$$ removes all clusters entirely. An algorithm manufactured for conelike sprays of particles,
-with real measured energies, simply isn't appropriate for a generic point clustering algorithm based on an 
-equitable assignment of energies in a non-circular pattern.
+However, there are now two overlapping clusters associated with the overdense region connected to the orange peak.
+I would even argue that the lower-left cluster should be a part of the extended irregular-shaped overdense region 
+connected with the orange peak. In an ideal algorithm, I'd therefore expect that the overlapping regions would
+somehow merge, and that the lower-left cluster would not be considered a cluster at all.
 
 ## The Heatmap Approach to Clustering
 
@@ -142,15 +148,15 @@ consists of $$N$$ points that are spaced uniformly, each with a distance $$d$$ f
 be picturing $$N$$ circles with radius $$d$$, with each circle containing a single point, and the net area of these
 circles should be $$A=N\cdot\pi d^2$$. Rearranging for the distance estimate $$d$$, we get $$d=\sqrt{A/2\pi N}$$.
 
-Using this distance $$d$$ as an estimate for the smear parameter $$\sigma$$, we now have a heatmap
-
-<img src="https://mattingliswhalen.github.io/images/2024_04_08/blurred_high_density_heatmap_border.png">
+Using this distance $$d$$ as an estimate for the smear parameter $$\sigma$$, we get the heatmaps that are shown above in
+the previous section.
 
 But how do we identify the peaks? They're quite clear to the human eye, but to a computer it's less obvious. 
-With the usual starting idea of gradient ascent, how might we guarantee that all maxima are found? 
+With the usual starting idea of [gradient ascent](https://en.wikipedia.org/wiki/Gradient_descent), 
+how might we guarantee that all maxima are found? 
 Over a finite region, we could initialize a grid of starting seeds that evolve through the ascent algorithm, but that
 feels numerically inefficient. After all, a starting grid would have to be fairly fine-grained to ensure all
-peaks are found, and while the ascent algorithm is fairly fast, applying that algorithm to each of the $$N \times N$$
+peaks are found, and while the ascent algorithm is fairly fast, applying that algorithm to each of the $$N_x \times N_y$$
 seeds would be very slow. Well if we're sampling a grid of points in the first place, we might as well just use those
 points themselves to find the peaks. If we coarse grain the grid, an exhaustive search on a finite
 area becomes relatively efficient.
@@ -160,7 +166,7 @@ area becomes relatively efficient.
 Finding a local maximum on a discretized domain is relatively easy: you just look for the pixels that have a higher
 density than its four nearest neighbours.
 
-[There they are]
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/peak_locations_coarse.png">
 
 But what about the extent of each peak? The lower-left peak is clearly longer than the upper-right peak, and it's
 tilted a little. Well if we also disretize the density to, say, 10 distinct intervals ($$0<\rho<0.1, ..., 0.9<\rho<1),
