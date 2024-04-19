@@ -159,21 +159,28 @@ feels numerically inefficient. After all, a starting grid would have to be fairl
 peaks are found, and while the ascent algorithm is fairly fast, applying that algorithm to each of the $$N_x \times N_y$$
 seeds would be very slow. Well if we're sampling a grid of points in the first place, we might as well just use those
 points themselves to find the peaks. If we coarse grain the grid, an exhaustive search on a finite
-area becomes relatively efficient.
+area becomes relatively inexpensive.
 
-<img src="https://mattingliswhalen.github.io/images/2024_04_08/low_density_heatmap.png">
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/heatmap_coarse.png">
 
 Finding a local maximum on a discretized domain is relatively easy: you just look for the pixels that have a higher
 density than its four nearest neighbours.
 
-<img src="https://mattingliswhalen.github.io/images/2024_04_08/peak_locations_coarse.png">
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/heatmap_coarse_gpeaks.png">
 
-But what about the extent of each peak? The lower-left peak is clearly longer than the upper-right peak, and it's
-tilted a little. Well if we also disretize the density to, say, 10 distinct intervals ($$0<\rho<0.1, ..., 0.9<\rho<1),
+The green dots here represent all the local maxima. There are a few issues, however, with this peak-finding
+prescription.
+1. See how the upper-right overdensity has two nearly adjacent maxima? They should be part of the same 
+overdensity region
+2. The bottom-left green peak should be part of the overdensity region connected to the orange peak.
+3. There is no information about the size or orientation of an overdensity region 
+The lower-left overdensity is clearly longer than the upper-right peak, and it's
+tilted a little. Well if we also disretize the density to, say, the 11 decimal-rounded intervals 
+($$0<\rho<0.05, 0.05<\rho<0.15, ..., 0.95<\rho<1),
 then we can count all contiguous pixels that lie in the same interval as the peak as being in the peak's "cluster",
 and we should be done!
 
-[Pixellized and discretized]
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/heatmap_coarse_discretized.png">
 
 Once I realized I wanted to work with a coarse-grained heatmap, the first mistake I made was 
 Numerical
