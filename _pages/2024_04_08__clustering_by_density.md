@@ -51,8 +51,6 @@ famous jet definition is called the "anti-kT algorithm".
 
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/antikt.png">
 
-### The algorithm
-
 Notating the 2D position of a point $$n$$ as $$\vec{r}_n$$, imagine we are given a set of $$N$$ points {$$\vec{r}_n$$}. 
 To each point we assign an "energy" $$E_n = 1/N$$ such that the energies sum to 1. We begin by forming a list of
 "pseudo clusters" {$$p_n$$}, defined initially as the pair
@@ -214,7 +212,7 @@ at a threshold density of 0.8, the higher density pixels flood into those pixels
 and the pixels that survive are considered
 to be a cluster.
 
-<img src="https://mattingliswhalen.github.io/images/2024_04_08/flood_algo.png">
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/flood_algo.gif">
 
 ### Size and Orientatiom
 
