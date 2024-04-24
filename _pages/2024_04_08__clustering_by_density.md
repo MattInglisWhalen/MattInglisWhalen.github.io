@@ -286,7 +286,8 @@ to the user, combined with repeated use of `devtools::document()` and `devtools:
 You can now download the package using `devtools::install_github('MattInglisWhalen/ClusterByDensity')` 
 or `remotes::install_github('MattInglisWhalen/ClusterByDensity')`. For a sample use-case, try running
 [example_with_plotting.R](https://github.com/MattInglisWhalen/ClusterByDensity/blob/main/examples/example_with_plotting.R) 
-in your favourite R environment, which should generate the same heatmap and ellipses as you've grown to know and love.
+in your favourite R environment with the [dummy data⭳](http://mattingliswhalen.github.io/data/2024_04_08/sample_data.csv)
+we've been using throughout this post, which should generate the same heatmap and ellipses as you've grown to know and love.
 
 
 
