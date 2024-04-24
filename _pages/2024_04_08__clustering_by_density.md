@@ -263,14 +263,10 @@ $$ \tan(2\theta) = \frac{2 \mathrm{cov}[x,y]}{\mathrm{cov}[x,x] - \mathrm{cov}[y
 The outcome of this technique is shown below. The points in the original peak (left) are rotated through an angle
 $$\theta$$ (positive counter-clockwise), with the resulting rotated points having zero correlation (right).
 
- <div class="row">
-  <div class="column">
-    <img src="https://mattingliswhalen.github.io/images/2024_04_08/angle1.png" alt="Correlated pixels" style="width:40%">
-  </div>
-  <div class="column">
-    <img src="https://mattingliswhalen.github.io/images/2024_04_08/angle2.png" alt="Decorrelated pixels" style="width:40%">
-  </div>
-</div> 
+
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/angle1.png" alt="Correlated pixels" style="width:49%">
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/angle2.png" alt="Decorrelated pixels" style="width:49%">
+
 
 The half-length of the cluster is then $$L = [\max(\xi) - \min(\xi)]/2$$ and the half-width of the cluster is
 $$W = [\max(\eta) - \min(\eta)]/2$$. In order to also visually demonstrate the prominence of a peak, I'll multiply these
