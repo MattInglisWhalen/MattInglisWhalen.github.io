@@ -190,7 +190,7 @@ The first two issues are a matter of unfortunate noise in the density distributi
 should come down to being able to
 identify which pixels near a peak are also close in density to that peak. These 3 issues can be solved at once 
 by discretizing the allowable densities. Choosing the 11 decimal-rounded intervals
-($$0<\rho<0.05, 0.05<\rho<0.15, ..., 0.95<\rho<1$$), we get
+$$(0<\rho<0.05, 0.05<\rho<0.15, ..., 0.95<\rho<1)$$, we get
 
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/heatmap_coarse_discretized.png">
 
