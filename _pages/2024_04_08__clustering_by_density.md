@@ -221,45 +221,53 @@ and the pixels that survive are considered
 to be a cluster.
 
 <p style="text-align:center;">
-<img align="center" src="https://mattingliswhalen.github.io/images/2024_04_08/flood_algo.gif">
+<img align="center" src="https://mattingliswhalen.github.io/images/2024_04_08/flood_algo.gif" loop=infinite>
 </p>
 
 ### Visualizing Size and Orientation
 
-Once all the contiguous pixels of a peak have been identified and collected, it's important to be able to visualize
-their location, size, and orientation. A famous way to get orientation information from (x,y) data is by
-fitting a linear regression $$y = mx+b$$ to the data. The estimate for the slope is given in terms of the covariance
+Once all the contiguous pixels of a peak have been identified and collected, it's important to visualize
+that peak's location, size, and orientation. If we think about these peaks as 2D Normal distributions, the typical
+visualization scheme is to plot an ellipse at the center of the distribution, with its half-length and half-width
+corresponding to the standard deviations along the principal axes. Then just like error bars denote the 66.8% confidence
+region for 1D data, the ellipse denotes the 39.3% confidence region in 2D. 
 
-$$\hat{m} = \frac{\mathrm{Cov}[X,Y]}{\mathrm{Cov}[X,X]}$$
+So our goal will be to collect the locations
+of all pixels associated with a peak, and we will fit an ellipse to their shape.
+In order to get the principal axes of the peak, we need to determine the angle through which we need 
+to rotate our peak's pixels so that the new x- and y-coordinates become decorrelated. Using the standard 
+[rotation matrices](https://en.wikipedia.org/wiki/Rotation_matrix), the new coordinates ($$\xi$$, $$\eta$$) are written
+in terms of the usual coordinates ($$x$$,$$y$$) as
 
-The length we assign to the cluster will be determined by the maximum extent of the pixels *along* this slope, 
-while the assigned width will be the maximum extent *perpendicular* to this slope. Working with 
-parallel and perpendicular distances is easier after rotating to a basis where the best-fit slope is zero, so we need
-the angle the slope makes with the x-axis. Since 
-$$ \hat{m} = \mathrm{rise}/\mathrm{run} = \Delta y / \Delta x = \tan(\theta)$$, 
-we can associate an angle to the cluster of pixels forming the peak. Then using the standard rotation matrices, 
-the new transformed coordinates are 
+$$ \xi = \ x \cos(\theta) + y \sin(\theta)$$
 
-$$ \xi = \ x \cos(\theta) - y \sin(\theta)$$
+$$ \eta = -x \sin(\theta) + y \cos(\theta) .$$
 
-$$ \eta = -x \sin(\theta) + y \cos(\theta) $$
+With these new coordinates, ensuring that their covariance is zero is as simple as finding the rotation angle such that
 
-The length of the cluster is then $$L = [\max(\xi) - \min(\xi)]/2$$ and the width of the cluster is
-$$W[\max(\eta) - \min(\eta)]/2$$. Since I'm used to using ellipses to denote 95%-confidence regions of 2D Gaussians,
-I'll also use ellipses here. I imagine, however, that a couple of orthogonal lines would also do the trick.
-I'll therefore assign the length and width to be the semi-major and semi-minor axes of an ellipse for plotting.
+$$ \mathrm{cov}[\xi,\eta] = \mathrm{cov}[x \cos(\theta) + y \sin(\theta),-x \sin(\theta) + y \cos(\theta)] = 0 $$
 
+From the bilinearity of the covariance, this vanishing of the covariance occurs when
 
-Note that in the above image I also scale both ellipse axes by a constant factor based on the height of the peak,
-in order to better capture the total "mass" of the density distribution. In a standard normal distribution, the
-maximum height of a peak scales like $$h_\mathrm{max} ~ {1}{\sigma}$
+$$ \tan(2\theta) = \frac{2 \mathrm{cov}[x,y]}{\mathrm{cov}[x,x] - \mathrm{cov}[y,y]}$$ 
 
-I'm also interested in capturing the "mass"
-and I'll account for the height of 
+The outcome of this technique is shown below. The points in the original peak (left) are rotated through an angle
+$$\theta$$ (positive counter-clockwise), with the resulting rotated points having zero correlation (right).
 
+ <div class="row">
+  <div class="column">
+    <img src="angle1.png" alt="Correlated pixels" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="angle2.png" alt="Decorrelated pixels" style="width:100%">
+  </div>
+</div> 
 
-Once an angle is found, further manipulations
-can be performed to determine the length of the peak along that the semi-minor and semi-major axes of an ellipse 
+The half-length of the cluster is then $$L = [\max(\xi) - \min(\xi)]/2$$ and the half-width of the cluster is
+$$W[\max(\eta) - \min(\eta)]/2$$. In order to also visually demonstrate the prominence of a peak, I'll multiply these
+lengths and widths by twice the peak threshold. 
+
+<img src="peak_ellipses.png">
 
 ### Making an R Package
 
