@@ -265,10 +265,10 @@ $$\theta$$ (positive counter-clockwise), with the resulting rotated points havin
 
  <div class="row">
   <div class="column">
-    <img src="https://mattingliswhalen.github.io/images/2024_04_08/angle1.png" alt="Correlated pixels" style="width:50%">
+    <img src="https://mattingliswhalen.github.io/images/2024_04_08/angle1.png" alt="Correlated pixels" style="width:40%">
   </div>
   <div class="column">
-    <img src="https://mattingliswhalen.github.io/images/2024_04_08/angle2.png" alt="Decorrelated pixels" style="width:50%">
+    <img src="https://mattingliswhalen.github.io/images/2024_04_08/angle2.png" alt="Decorrelated pixels" style="width:40%">
   </div>
 </div> 
 
