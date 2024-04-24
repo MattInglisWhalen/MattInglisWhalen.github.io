@@ -224,6 +224,12 @@ to be a cluster.
 <img align="center" src="https://mattingliswhalen.github.io/images/2024_04_08/flood_algo.gif" loop=infinite>
 </p>
 
+The algorithm is now complete. Returning to the story in the introduction, one scientific use-case for this algorithm
+might involve asking the question "how many popular spots are there to take pictures of this statue?". 
+With this algorithm specified, along with the smear size ($$R=0.205\,m$$) and the minimum density required 
+to call a peak popular ($$\rho_\mathrm{min} = 0.75$$), the question can be answered: there are two popular peaks here!
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/2_peaks_yay.png">
+
 ### Visualizing Size and Orientation
 
 Once all the contiguous pixels of a peak have been identified and collected, it's important to visualize
@@ -256,25 +262,29 @@ $$\theta$$ (positive counter-clockwise), with the resulting rotated points havin
 
  <div class="row">
   <div class="column">
-    <img src="https://mattingliswhalen.github.io/images/2024_04_08/angle1.png" alt="Correlated pixels" style="width:100%">
+    <img src="https://mattingliswhalen.github.io/images/2024_04_08/angle1.png" alt="Correlated pixels" style="width:50%">
   </div>
   <div class="column">
-    <img src="https://mattingliswhalen.github.io/images/2024_04_08/angle2.png" alt="Decorrelated pixels" style="width:100%">
+    <img src="https://mattingliswhalen.github.io/images/2024_04_08/angle2.png" alt="Decorrelated pixels" style="width:50%">
   </div>
 </div> 
 
 The half-length of the cluster is then $$L = [\max(\xi) - \min(\xi)]/2$$ and the half-width of the cluster is
-$$W[\max(\eta) - \min(\eta)]/2$$. In order to also visually demonstrate the prominence of a peak, I'll multiply these
-lengths and widths by twice the peak threshold. 
+$$W = [\max(\eta) - \min(\eta)]/2$$. In order to also visually demonstrate the prominence of a peak, I'll multiply these
+lengths and widths by twice the peak threshold.
+
+With this definition of an ellipse, we now have visual confirmation of where our our dummy data has 4 clusters with a threshold above 0.6
 
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/peak_ellipses.png">
+
+For a scientific analysis looking for a count of clusters, this algorithm can then 
 
 ## Making an R Package
 
 After asking by wife about typical practices in her lab, I learned that her colleagues typically use R or Matlab to 
 program their analyses, but that Matlab is being phased out due to licensing fees. 
 While I had written most of the anti-kT code in Python, I was glad for an opportunity to practice my R skills, and 
-thought it would be good practice to make the solution available everywhere by turnng it into
+thought it would be good practice to make the solution available everywhere by turning it into
 an installable R package.
 
 Following this [guide](https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html) by 
