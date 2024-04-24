@@ -256,10 +256,10 @@ $$\theta$$ (positive counter-clockwise), with the resulting rotated points havin
 
  <div class="row">
   <div class="column">
-    <img src="angle1.png" alt="Correlated pixels" style="width:100%">
+    <img src="https://mattingliswhalen.github.io/images/2024_04_08/angle1.png" alt="Correlated pixels" style="width:100%">
   </div>
   <div class="column">
-    <img src="angle2.png" alt="Decorrelated pixels" style="width:100%">
+    <img src="https://mattingliswhalen.github.io/images/2024_04_08/angle2.png" alt="Decorrelated pixels" style="width:100%">
   </div>
 </div> 
 
@@ -267,15 +267,27 @@ The half-length of the cluster is then $$L = [\max(\xi) - \min(\xi)]/2$$ and the
 $$W[\max(\eta) - \min(\eta)]/2$$. In order to also visually demonstrate the prominence of a peak, I'll multiply these
 lengths and widths by twice the peak threshold. 
 
-<img src="peak_ellipses.png">
+<img src="https://mattingliswhalen.github.io/images/2024_04_08/peak_ellipses.png">
 
-### Making an R Package
+## Making an R Package
 
 After asking by wife about typical practices in her lab, I learned that her colleagues typically use R or Matlab to 
 program their analyses, but that Matlab is being phased out due to licensing fees. 
 While I had written most of the anti-kT code in Python, I was glad for an opportunity to practice my R skills, and 
-thought it would be good practice make the solution available everywhere by making it
+thought it would be good practice to make the solution available everywhere by turnng it into
 an installable R package.
+
+Following this [guide](https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html) by 
+Fong Chun Chan, I got to work building the heatmap-based algorithm into an R package called ClusterByDensity, now 
+[available on Github](https://github.com/MattInglisWhalen/MattInglisWhalen.github.io). 
+It's a pretty simple matter of writing the `roxygen2` function documentation for all the functions you want to expose
+to the user, combined with repeated use of `devtools::document()` and `devtools::load_all()` for the build-test cycle.
+
+You can now download the package using `devtools::install_github('MattInglisWhalen/ClusterByDensity')` 
+or `remotes::install_github('MattInglisWhalen/ClusterByDensity')`. For a sample use-case, try running
+[example_with_plotting.R](https://github.com/MattInglisWhalen/ClusterByDensity/blob/main/examples/example_with_plotting.R) 
+in your favourite R environment, which should generate the same heatmap and ellipses as you've grown to know and love.
+
 
 
 
