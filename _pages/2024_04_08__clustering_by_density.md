@@ -18,7 +18,7 @@ of consumer-grade virtual reality (VR) equipment. Ever since Oculus'
 toys to play with, and this equipment allows her to ask and answer questions that would not be possible without
 the development of VR. Her experiments are created using the Unity engine, and when she's collecting data from 
 participants, she's able to record the frame-by-frame location of the participant as they wander around the 
-virtual envirnonment.
+virtual environment.
 
 She was recently approached by the anthropology department to see where people most often take pictures of famous statues. 
 High-quality 3D models of statues like 
@@ -29,15 +29,16 @@ virtual museum to hold the statues, participants were asked to wander around the
 as they like of the virtual statues. VR allowed the precise photo locations to be recorded, and a standard heatmap
 library allows the most popular locations to be visualized.
 
-Beyond simply seeing where participants have taken a picture, a question that the anthropolgy department wanted
+Beyond simply seeing where participants have taken a picture, a question that the anthropology department wanted
 answered was how *many* popular photo locations existed for each statue. The thinking goes that some of the provided
 statues are single-perspective while others are multi-perspective, and that this should be reflected in the number
 of popular photo locations. My wife and I talk a lot about how to approach data analysis, and I mentioned that 
-particle physics experiments often need to form clusters and count clusters. She sent me the data to play around with,
+particle physics experiments often need to form and count clusters. She sent me the data to play around with,
 and so here we are: finding and counting clusters of 2D datapoints. Since her own analysis is not yet published, 
 I'll be using 
 [dummy data⭳](http://mattingliswhalen.github.io/data/2024_04_08/sample_data.csv), shown below,
 to showcase the algorithms.
+
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/raw_points.png">
 
 
@@ -139,7 +140,7 @@ $$D(\vec{r}) = \sum_{i=1}^{N} \delta(\vec{r}-\vec{r}_i)$$
 where $$\vec{r}_i$$ are the positions of each of the points in the dataset, as in the previous section. Together with
 the Normal distribution as the smearing function
 
-$$S(\vec{r}) = N_\sigma(\vec{r}) ~ A \exp\left[-\frac{\vec{r}^2}{2\sigma^2}\right]$$
+$$S(\vec{r}) = N_\sigma(\vec{r}) \sim A \exp\left[-\frac{\vec{r}^2}{2\sigma^2}\right]$$
 
 we get that, after using the definition of a 2D convolution, the density is
 
@@ -186,7 +187,7 @@ overdensity region
 2. The bottom-left green peak should be part of the overdense region connected to the orange peak.
 3. There is no information about the size or orientation of an overdensity region
 
-The first two issues are a matter of unfortunate noise in the density distribution, and the last issue 
+The first two issues are a matter of unavoidable noise in the density distribution, and the last issue 
 should come down to being able to
 identify which pixels near a peak are also close in density to that peak. These 3 issues can be solved at once 
 by discretizing the allowable densities. Choosing the 11 decimal-rounded intervals
@@ -294,7 +295,8 @@ You can now download the package using `devtools::install_github('MattInglisWhal
 or `remotes::install_github('MattInglisWhalen/ClusterByDensity')`. For a sample use-case, try running
 [example_with_plotting.R](https://github.com/MattInglisWhalen/ClusterByDensity/blob/main/examples/example_with_plotting.R) 
 in your favourite R environment with the [dummy data⭳](http://mattingliswhalen.github.io/data/2024_04_08/sample_data.csv)
-we've been using throughout this post, which should generate the same heatmap and ellipses as you've grown to know and love.
+we've been using throughout this post, which should generate the same heatmap and ellipses that
+you've grown to know and love.
 
 
 
