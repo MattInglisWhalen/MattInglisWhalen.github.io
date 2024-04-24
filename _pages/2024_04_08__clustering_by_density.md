@@ -224,16 +224,19 @@ to be a cluster.
 <img align="center" src="https://mattingliswhalen.github.io/images/2024_04_08/flood_algo.gif" loop=infinite>
 </p>
 
-The algorithm is now complete. Returning to the story in the introduction, one scientific use-case for this algorithm
-might involve asking the question "how many popular spots are there to take pictures of this statue?". 
+The algorithm is now complete. The orthogonally-connected pixels form a region called a "peak", and their center
+is taken to be the mean position of the pixels. Returning to the story in the introduction, one scientific use-case 
+for this algorithm might involve asking the question "how many popular spots are there to take pictures of this statue?". 
 With this algorithm specified, along with the smear size ($$R=0.205\,m$$) and the minimum density required 
 to call a peak popular ($$\rho_\mathrm{min} = 0.75$$), the question can be answered: there are two popular peaks here!
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/2_peaks_yay.png">
 
 ### Visualizing Size and Orientation
 
-Once all the contiguous pixels of a peak have been identified and collected, it's important to visualize
-that peak's location, size, and orientation. If we think about these peaks as 2D Normal distributions, the typical
+Once all the contiguous pixels of a peak have been identified and collected, it's possible to visualize
+more than just the peak's location and height. The peak's size and orientation are also interesting descriptive statistics 
+that can inform about important information like precision, correlation, drift, etc. 
+If we think about these peaks as 2D Normal distributions, the typical
 visualization scheme is to plot an ellipse at the center of the distribution, with its half-length and half-width
 corresponding to the standard deviations along the principal axes. Then just like error bars denote the 66.8% confidence
 region for 1D data, the ellipse denotes the 39.3% confidence region in 2D. 
