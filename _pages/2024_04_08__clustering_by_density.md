@@ -276,11 +276,9 @@ The half-length of the cluster is then $$L = [\max(\xi) - \min(\xi)]/2$$ and the
 $$W = [\max(\eta) - \min(\eta)]/2$$. In order to also visually demonstrate the prominence of a peak, I'll multiply these
 lengths and widths by twice the peak threshold.
 
-With this definition of an ellipse, we now have visual confirmation of where our our dummy data has 4 clusters with a threshold above 0.6
-
+With this definition of an ellipse, we now have visual confirmation of the general size and orientation of the 
+overdensities that we could already see with our eyes.
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/peak_ellipses.png">
-
-For a scientific analysis looking for a count of clusters, this algorithm can then 
 
 ## Making an R Package
 
