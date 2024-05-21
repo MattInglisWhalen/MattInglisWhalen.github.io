@@ -16,7 +16,7 @@ For hiring teams, please visit my portfolio section to view and interact with my
 ### News:
 
 - April 2024 --- My R package [ClusterByDensity](https://github.com/MattInglisWhalen/ClusterByDensity) can now be used to find clusters in 2D point-spread datasets. Read about it [here](https://mattingliswhalen.github.io/blog/2024-04-08--2D-Clusters)!
-- December 2023 --- I've uploaded my DataCamp final project that goes through the entire data cleaning, exploratory analysis, model building, and model appraisal pipeline. Blog post coming soon. 
+- December 2023 --- I've uploaded my DataCamp [final project](https://github.com/MattInglisWhalen/RecipeSiteTraffic) that goes through the entire data cleaning, exploratory analysis, model building, and model appraisal pipeline. Blog post coming soon. 
 - November 2023 --- [Tutorial pages](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_1/) for MIW's AutoFit are now live.
 - October 2023 --- I've built a rudimentary sentiment analysis model using Kaggle's [Netflix Movie Rating](https://www.kaggle.com/datasets/rishitjavia/netflix-movie-rating-dataset) dataset. I deployed the model to an EC2-instance so that you can [check it out](http://ec2-18-216-26-152.us-east-2.compute.amazonaws.com/mrs_demo) for yourself!
 - August 2023 --- Completed DataCamp's Professional Data Scientist certification.
