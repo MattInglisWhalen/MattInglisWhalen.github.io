@@ -40,3 +40,10 @@ author_profile: true
 <a href="https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_1/">
 <img src="https://mattingliswhalen.github.io/images/MIWsAutoFitTutorial/welcome.jpg" width="500">
 </a></p>
+
+2023-10 [Deploying a Cloud Inference Model](https://mattingliswhalen.github.io/blog/2023-10-12--sentiment-analysis-micro)
+<p style="text-align:center;">
+<a href="https://mattingliswhalen.github.io/blog/2023-10-12--sentiment-analysis-micro">
+<img src="https://mattingliswhalen.github.io/images/prestige.png" width="500">
+</a></p>
+
