@@ -25,4 +25,5 @@ For hiring teams, please visit my portfolio section to view and interact with my
 - March 2022 --- I defended my [thesis](https://tspace.library.utoronto.ca/handle/1807/123124), completing my PhD in particle physics at the University of Toronto
 - October 2021 --- Met the PhD quota! My third paper [Factorization of Power Corrections in the Drell-Yan Process in EFT ](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.104.076018) has been published in Phys Rev D!
 - October 2021 --- After a year of arguing with reviewers, our new article [Rapidity logarithms in SCET without modes](https://www.sciencedirect.com/science/article/abs/pii/S0375947421001251?via%3Dihub) has been published in Nucl Phys A.
+- March 2019 --- I presented our prelimary work on the cancellation of rapidity divergences at the annual [SCET workshop](https://indico.physics.lbl.gov/event/694/timetable/#20190325.detailed) in San Diego.
 - May 2018 --- My first THEP publication, entitled [Renormalization of dijet operators at order 1/Q² in Soft-Collinear Effective Theory](https://link.springer.com/article/10.1007/JHEP05(2018)023), has been published by JHEP!
