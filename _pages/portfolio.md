@@ -45,11 +45,12 @@ GitHub repository</a>!
 
 <br>
 Don't know which functional model best fits your 1D-data? MIW's AutoFit will let you know!
-This multiplatform GUI is compatible with Windows, MacOSX, and Ubuntu. An online demo <a href="http://ec2-18-216-26-152.us-east-2.compute.amazonaws.com/MIWs_AutoFit_demo">is available here</a>.
-Downloads, implementation details, and tutorials are available
+This multiplatform GUI is compatible with Windows, MacOSX, and Ubuntu. An online demo 
+<a href="http://ec2-18-216-26-152.us-east-2.compute.amazonaws.com/MIWs_AutoFit_demo">is available here</a>.
+Downloads and implementation details are available
 <a href="https://github.com/MattInglisWhalen/MIW_AutoFit">
-in this GitHub repository</a>, or check out the 
-[tutorials](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_1/).
+in this GitHub repository</a>, or check out the tutorial
+<a href="https:mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_1">here</a>.
 </details>
 
 ---
