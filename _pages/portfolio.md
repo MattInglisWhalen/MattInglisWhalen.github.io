@@ -54,8 +54,6 @@ in this GitHub repository</a>, or check out the tutorial
 </details>
 
 ---
-
-
 ## Exploratory Analysis and Predictive Modelling
 
 <details> 
@@ -80,6 +78,7 @@ Two simple models are compared in order to best predict which bookings will resu
 attending the class, allowing more spots to be created for other paying members.
 </details>
 
+---
 ## Packages
 
 <details>
