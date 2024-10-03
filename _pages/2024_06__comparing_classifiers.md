@@ -46,7 +46,7 @@ therefore the model will classify the image into that category.
 Let's run some hypothetical experiments on this model. Imagine that you run many images from class 5
 through the model to find its accuracy $\mathcal{A}_5$ on this category
 
-$\mathcal{A}_5 = P(D_5 > D_{1,2,3,4} | 5-\mathrm{image}).$
+$$\mathcal{A}_5 = P(D_5 > D_{1,2,3,4} | 5-\mathrm{image}).$$
 
 We could also run this same model through a series of parallel experiments, where only two categories
 are available at a time. If only classes 1 and 5 are available as options, then the accuracy in this scenario is
@@ -77,7 +77,7 @@ then we see that the accuracy on 5-class images is
 $\mathcal{A}_5 = p_{gm,5}^4$
 
 I.e. the accuracy on some particular class is equal to the geometric mean of pairwise accuracies,
-raise to the power of the number of classes less one.
+dto the power of the number of classes less one.
 
 The overall accuracy of the model will be
 
@@ -89,11 +89,11 @@ a perfectly balanced dataset, this reduces to the mean
 $\mathcal{A} = \frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right]$
 
 Remember: we're trying to find a single number that can be used to compare models with
-any number of target classes. If we define the average the appears on the right as
+any number of target classes. So when we report this single number, we shouldn't
+need to also report the number of classes that the models were tested on.
+Let's define the average that appears on the right as
 
-\frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right] \equiv \alpha_{bea}^4$
-
-// Tomorrow -- enough with the naive BEA -- it didnt work. Just accept it for what it is and move on
+$\frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right] \equiv \alpha_{bea}^4$
 
 where the exponent on the right has been chosen to have the same "units" of probability as
 on the left. This value -- $\tilde{\mathcal{A}}_{BE}$ -- is what I call the 
@@ -119,7 +119,7 @@ as the number of classes increases is not entirely satisfactory.
 
 To get a better understanding of what the binary-equivalent accuracy is saying,
 let's use a simple toy model to see how the BEA behaves as the number of categories increases.
-If we have $N$ categories and all our model does is guess the correct category 
+If we have $N$ categories and all our model does is randomly guess the correct category 
 (say with an N-sided die) then its accuracy will be $\mathcal{A}=1/N$, giving a corresponding
 naive binary-equivalent accuracy of 
 
@@ -204,10 +204,19 @@ models that could possibly fit a given dataset (i.e. as I increase the depth par
 the number of models increases roughly as 2^N. With ...
 For each functional model and have found that 
 
+Depth 1: 6 classes, 83.3 -> 96.4%
+Depth 2: 18 classes, 77.8% -> 98.53% 
+Depth 3: 115 classes, 45% -> xx%
+Depth 4: 865 classes, xx% -> xx%
+
 
 $^†$: Despite being the result of a softmax function, and despite being commonly called so,
 I am hesitant to call this a probability. 
 
-
+*: If all we're looking for is a number that "feels" right. There are probably many ways to do this
+with separate benefits and drawbacks.
+$^‡$: Obviously the same process can be applied to models that perform *worse* than random, but I'll
+leave it to you, the reader, to work out how to make a closeness parameter $t'$ for how close the
+nBEA is to 0% accuracy.  
 
 Tags: #classification #algorithm #statistics #binomial #CDF #binary #equivalent #accuracy
