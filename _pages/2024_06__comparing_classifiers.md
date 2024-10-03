@@ -77,7 +77,7 @@ then we see that the accuracy on 5-class images is
 $$\mathcal{A}_5 = p_{gm,5}^4$$
 
 I.e. the accuracy on some particular class is equal to the geometric mean of pairwise accuracies,
-dto the power of the number of classes less one.
+raised to the power of the number of classes less one.
 
 The overall accuracy of the model will be
 
@@ -141,7 +141,7 @@ this method to evaluate other models and see how the method compares.
 
 Since we're asking that
 
-$$0.5 = \frac{\tilde{\mathcal{A}} + t(\mathcal{A})}{2}$$
+$$0.5 = \tilde{\mathcal{A}} + t(\mathcal{A})$$
 
 for some unknown transformation $t(\mathcal{A})$, we can simply rearrange to find
 
@@ -219,8 +219,8 @@ For each functional model and have found that
 
 Depth 1: 6 classes, 83.3 -> 96.4%
 Depth 2: 18 classes, 77.8% -> 98.53% 
-Depth 3: 115 classes, 45% -> xx%
-Depth 4: 865 classes, xx% -> xx%
+Depth 3: 115 classes, 44.9% -> 99.3%
+Depth 4: 865 classes, 22.3% -> xx%
 
 
 $^†$: Despite being the result of a softmax function, and despite being commonly called so,
