@@ -97,7 +97,7 @@ def run_and_plot_accuracies():
 
     accuracies = []
     cats = []
-    for n_cats in range(359):
+    for n_cats in range(100):
         cats.append(n_cats+2)
         accuracies.append(accuracy_from_hearing_simulation(n_cats+2))
 

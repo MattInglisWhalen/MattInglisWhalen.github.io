@@ -38,7 +38,7 @@ Imagine you've built a model that can classify images into 5 categories. When pr
 with an image, it will output the degree of association$^†$ $\mathbf{D}$ that the image has with each 
 of the 5 categories. It might look something like this
 
-$\mathbf{D}(\mathrm{image}) = [0.10 0.05, 0.20 0.30 0.35]$
+$$\mathbf{D}(\mathrm{image}) = [0.10 0.05, 0.20 0.30 0.35]$$
 
 The model associates the image data most strongly with the fifth class ($D_5 > D_{1,2,3,4}$), and 
 therefore the model will classify the image into that category.
@@ -51,11 +51,11 @@ $$\mathcal{A}_5 = P(D_5 > D_{1,2,3,4} | 5-\mathrm{image}).$$
 We could also run this same model through a series of parallel experiments, where only two categories
 are available at a time. If only classes 1 and 5 are available as options, then the accuracy in this scenario is
 
-$\mathcal{A}_{5,1} = P(D_5 > D_1 | 5-\mathrm{image}),$
+$$\mathcal{A}_{5,1} = P(D_5 > D_1 | 5-\mathrm{image}),$$
 
 and this goes on up to 
 
-$\mathcal{A}_{5,4} = P(D_5 > D_4 | 5-\mathrm{image}).$
+$$\mathcal{A}_{5,4} = P(D_5 > D_4 | 5-\mathrm{image}).$$
 
 We can imagine that when a full 5-category classification is done, it proceeds through
 a gauntlet of pairwise choices. First the classes 1 and 5 are compared, and if 5 is chosen 
@@ -66,34 +66,34 @@ then class 5 is chosen as the best overall ($P(5>1,2,3,4|5)$).
 Since survival probability is multiplicative, the probability of class 5 making it through 
 the entire gauntlet is equal to the product of probabilities for each of the steps in the gauntlet
 
-$ P(5>1,2,3,4 | 5) = P(5 > 1 | 5) P(5 > 2 | 5) P(5 > 3 | 5) P(5 > 4 | 5)$
+$$ P(5>1,2,3,4 | 5) = P(5 > 1 | 5) P(5 > 2 | 5) P(5 > 3 | 5) P(5 > 4 | 5)$$
 
 If we take the geometric mean of the 4 pairwise probabilities, 
 
-$p_{gm,5} = ^4\sqrt{P(5 > 1 | 5) P(5 > 2 | 5) P(5 > 3 | 5) P(5 > 4 | 5)}$
+$$p_{gm,5} = ^4\sqrt{P(5 > 1 | 5) P(5 > 2 | 5) P(5 > 3 | 5) P(5 > 4 | 5)}$$
 
 then we see that the accuracy on 5-class images is
 
-$\mathcal{A}_5 = p_{gm,5}^4$
+$$\mathcal{A}_5 = p_{gm,5}^4$$
 
 I.e. the accuracy on some particular class is equal to the geometric mean of pairwise accuracies,
 dto the power of the number of classes less one.
 
 The overall accuracy of the model will be
 
-$\mathcal{A} = \mathcal{A}_1 P(1-class) + \ldots + \mathcal{A}_5 P(5-class)$
+$$\mathcal{A} = \mathcal{A}_1 P(1-class) + \ldots + \mathcal{A}_5 P(5-class)$$
 
 where the $P(i-class)$ simply accounts for the proportion of $i$-class images in the test set. For 
 a perfectly balanced dataset, this reduces to the mean
 
-$\mathcal{A} = \frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right]$
+$$\mathcal{A} = \frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right]$$
 
 Remember: we're trying to find a single number that can be used to compare models with
 any number of target classes. So when we report this single number, we shouldn't
 need to also report the number of classes that the models were tested on.
 Let's define the average that appears on the right as
 
-$\frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right] \equiv \alpha_{bea}^4$
+$$\frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right] \equiv \alpha_{bea}^4$$
 
 where the exponent on the right has been chosen to have the same "units" of probability as
 on the left. This value -- $\tilde{\mathcal{A}}_{BE}$ -- is what I call the 
@@ -108,7 +108,7 @@ also be found by examining correlations between the geometric means for each cla
 
 So we have a number
 
-$\tilde{\mathcal{A}}_{BE} = \mathcal{A}^{1/(N-1)},$
+$$\tilde{\mathcal{A}}_{BE} = \mathcal{A}^{1/(N-1)},$$
 
 but as we shall see in the next section, the asymptotic behaviour of $\tilde{\mathcal{A}}_{BE}$ 
 as the number of classes increases is not entirely satisfactory. 
@@ -123,7 +123,7 @@ If we have $N$ categories and all our model does is randomly guess the correct c
 (say with an N-sided die) then its accuracy will be $\mathcal{A}=1/N$, giving a corresponding
 naive binary-equivalent accuracy of 
 
-$\tilde{\mathcal{A}}_{BE} = \left(\frac{1}{N}\right)^{1/(N-1)}$
+$$\tilde{\mathcal{A}}_{BE} = \left(\frac{1}{N}\right)^{1/(N-1)}$$
 
 <img src="https://mattingliswhalen.github.io/images/BinaryEquivalentAccuracy/bea_random_model.jpg">
 
@@ -133,22 +133,35 @@ measure unfairly disadvantages models with a higher number of class labels,
 the **naive BEA** unfairly disadvantages models with *fewer* categories. 
 In short -- the naive binary-equivalent accuracy of randomly guessing isn't 50%.
 
-There's a relatively easy fix* : we find how
+There's a relatively easy fix*: if we can make some transformation on the original accuracy 
+such that the average of the binary-equivalent accuracy and the transformed accuracy
+stays constant (at 0.5 hopefully!) then we will have a definition for a true $N$-agnostic
+measure of accuracy. At least, for the simple case of a randomly guessing model. We'll use 
+this method to evaluate other models and see how the method compares.
+
+Since we're asking that
+
+$$0.5 = \frac{\tilde{\mathcal{A}} + t(\mathcal{A})}{2}$$
+
+for some unknown transformation $t(\mathcal{A})$, we can simply rearrange to find
+
+
+we find how
 close the nBEA of our model is to perfect accuracy, relative to randomness, 
 then propagate that same closeness back to the BEA of randomness with only 2 classes. Using 
 an interpolation/LERP parameter $t$ to measure the closeness (0 is at perfect randomness,
 1 is at perfect accuracy$^‡$)
 
-$t = \frac{ nBEA_{\mathrm{model}}(N) - nBEA_{\mathrm{randomness}}(N) }{1-nBEA_{\mathrm{randomness}(N)}$ 
+$$t = \frac{ nBEA_{\mathrm{model}}(N) - nBEA_{\mathrm{randomness}}(N) }{1-nBEA_{\mathrm{randomness}(N)}$$ 
 
 Keeping the same value of closeness $t$ but placing it relative to randomness on two classes,
 we finally get to our true binary-equivalent accuracy $\mathcal{A}$
 
-$\mathcal{A}_{BE} =  nBEA_(2) + [1-nBEA_{\mathrm{randomness}}(2)] t$
+$$\mathcal{A}_{BE} =  nBEA_(2) + [1-nBEA_{\mathrm{randomness}}(2)] t$$
 
 Expanded out in full form, the monstrosity reads
 
-$\mathcal{A}_{BE} =  \frac{1}{2} + \frac{1}{2} \frac{\mathcal{A}^{1/(N-1)}-\left(\frac{1}{N}\right)^{1/(N-1)}}{1-\left(\frac{1}{N}\right)^{1/(N-1)}} t$
+$$\mathcal{A}_{BE} =  \frac{1}{2} + \frac{1}{2} \frac{\mathcal{A}^{1/(N-1)}-\left(\frac{1}{N}\right)^{1/(N-1)}}{1-\left(\frac{1}{N}\right)^{1/(N-1)}} t$$
 
 
 ## Hearing Experiments -- A Playground for Testing
