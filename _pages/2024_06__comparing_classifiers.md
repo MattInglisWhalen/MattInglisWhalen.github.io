@@ -77,7 +77,7 @@ then we see that the accuracy on 5-class images is
 $\mathcal{A}_5 = p_{gm,5}^4$
 
 I.e. the accuracy on some particular class is equal to the geometric mean of pairwise accuracies,
-raised to the power of the number of classes less one.
+raise to the power of the number of classes less one.
 
 The overall accuracy of the model will be
 
@@ -89,47 +89,111 @@ a perfectly balanced dataset, this reduces to the mean
 $\mathcal{A} = \frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right]$
 
 Remember: we're trying to find a single number that can be used to compare models with
-any number of target classes. So when we report this single number, we shouldn't
-need to also report the number of classes that the 
-Let's define the average that appears on the right as
+any number of target classes. If we define the average the appears on the right as
 
-\frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right] \equiv \mathcal{A}_{BE}^4$
+\frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right] \equiv \alpha_{bea}^4$
+
+// Tomorrow -- enough with the naive BEA -- it didnt work. Just accept it for what it is and move on
 
 where the exponent on the right has been chosen to have the same "units" of probability as
-on the left. This value -- $\mathcal{A}_{BE}$ -- is what I call the 
-binary-equivalent accuracy.
+on the left. This value -- $\tilde{\mathcal{A}}_{BE}$ -- is what I call the 
+naive binary-equivalent accuracy.
 It has the literal interpretation as the (N-1)th root of the average of (N-1)th powers of
 geometric means of pairwise accuracies. What a mouthful! 
 Under the *assumption* that the geometric means of 
 accuracies are equal across all classes (p_{gm,1} = ... = p_{gm,5}), 
-then $\mathcal{A}_{BE}$ is the
-same as these geometric means (i.e. $\mathcal{A}_{BE} = {p_{gm,i}}$). 
-A tighter interpretation might 
+then $\tilde{\mathcal{A}}_{BE}$ is the
+same as these geometric means ($\tilde{\mathcal{A}}_{BE} = {p_{gm,i}}$). A tighter interpretation might 
 also be found by examining correlations between the geometric means for each class 
 
-So we now have a single number
+So we have a number
 
-$\mathcal{A}_{BE} = \mathcal{A}^{1/(N-1)}$
+$\tilde{\mathcal{A}}_{BE} = \mathcal{A}^{1/(N-1)},$
 
-that can be used to compare the performance of different models which perform classifications
-on a different number of classes. Let's do a quick benchmark to get a quick feel for how this
-measure performs.
+but as we shall see in the next section, the asymptotic behaviour of $\tilde{\mathcal{A}}_{BE}$ 
+as the number of classes increases is not entirely satisfactory. 
 
-## Benchmarking BEAs with Random Guesses
 
-To get a better understanding of what the binary-equivalent accuracy is conveying,
+
+## Benchmarking Naive BEAs with Random Guesses
+
+To get a better understanding of what the binary-equivalent accuracy is saying,
 let's use a simple toy model to see how the BEA behaves as the number of categories increases.
-If we have $N$ categories and all our model does is randomly guess the category
+If we have $N$ categories and all our model does is guess the correct category 
 (say with an N-sided die) then its accuracy will be $\mathcal{A}=1/N$, giving a corresponding
-binary-equivalent accuracy of 
+naive binary-equivalent accuracy of 
 
-$\mathcal{A}_{BE} = \left(\frac{1}{N}\right)^{1/(N-1)}$
+$\tilde{\mathcal{A}}_{BE} = \left(\frac{1}{N}\right)^{1/(N-1)}$
 
 <img src="https://mattingliswhalen.github.io/images/BinaryEquivalentAccuracy/bea_random_model.jpg">
 
-So just as it's important to keep in mind that accuracy falls for a random-guess model
-as the number of classes increases, it's similarly important to remember that binary-equivalent 
-accuracy *rises* for increasing class cardinality.
+The naive binary-equivalent accuracy (nBEA) rises as the number of classes increases. Uhoh! 
+While **accuracy** as a
+measure unfairly disadvantages models with a higher number of class labels, 
+the **naive BEA** unfairly disadvantages models with *fewer* categories. 
+In short -- the naive binary-equivalent accuracy of randomly guessing isn't 50%.
+
+There's a relatively easy fix* : we find how
+close the nBEA of our model is to perfect accuracy, relative to randomness, 
+then propagate that same closeness back to the BEA of randomness with only 2 classes. Using 
+an interpolation/LERP parameter $t$ to measure the closeness (0 is at perfect randomness,
+1 is at perfect accuracy$^‡$)
+
+$t = \frac{ nBEA_{\mathrm{model}}(N) - nBEA_{\mathrm{randomness}}(N) }{1-nBEA_{\mathrm{randomness}(N)}$ 
+
+Keeping the same value of closeness $t$ but placing it relative to randomness on two classes,
+we finally get to our true binary-equivalent accuracy $\mathcal{A}$
+
+$\mathcal{A}_{BE} =  nBEA_(2) + [1-nBEA_{\mathrm{randomness}}(2)] t$
+
+Expanded out in full form, the monstrosity reads
+
+$\mathcal{A}_{BE} =  \frac{1}{2} + \frac{1}{2} \frac{\mathcal{A}^{1/(N-1)}-\left(\frac{1}{N}\right)^{1/(N-1)}}{1-\left(\frac{1}{N}\right)^{1/(N-1)}} t$
+
+
+## Hearing Experiments -- A Playground for Testing
+
+Imagine you've been asked to participate in an experiment. The researchers sit you down 
+in a quiet room and ask you to indicate whether a sound originated from your left or 
+right side. The sound comes from a random point in the circuar wall that surrounds you. For sounds 
+from your far left or right the task is easy, and you can always identify where the sound is 
+coming from. Your accuracy will be something like 99.5%, with the incorrect trials coming from 
+times where you mixed up the response switches, or the sound bounced funnily in the room, or you 
+were distracted thinking about some funny joke. Alternatively, when the sound is from directly 
+in front of you, but shifted ever so slightly to the left or right, you're basically just guessing 
+where the sound came from. Your accuracy will drop to ~50%. Integrated over all possible sound 
+locations (the 360° around you), your net accuracy might sit around 98%.
+
+Now what happens when they add more options? Left, right, front, back? Or more? Your accuracy will
+drop, and eventually drop to zero as the number of options increases to infinity,
+but lets see how the binary-equivalent accuracy behaves in this setting.
+
+I've coded up a simple simulation that 
+[can be downloaded here](http://mattingliswhalen.github.io/data/2024_06/hearing_test.py).
+If a beep comes from an angle $\theta$, we pretend that the
+angle at which you perceive the sound will follow a normal distribution centered on $\theta$
+and with some spread $\sigma$. For humans the width of the distribution is about $\sigma ~ 10°$.
+You point at the perceived source of the beep, and our net accuracy is determined by how often 
+you point in the correct quadrant, hextant, octant, etc. For N categories, the accuracy follows 
+the following curve
+
+<img src="https://mattingliswhalen.github.io/images/BinaryEquivalentAccuracy/accuracy_vs_ncat_hearing_experiment.jpg">
+
+But the binary equivalent accuracy follows this curve
+
+<img src="https://mattingliswhalen.github.io/images/BinaryEquivalentAccuracy/accuracy_vs_ncat_hearing_experiment.jpg">
+
+The $\mathcal{A}_{BE}$, like the  falls at first, then rises slowly. Ideally the profile should be constant, 
+since now one might conclude -- based only on the binary-equivalent accuracy --
+that a human who can distinguish between
+100 different categories of angle is better than a human who can only distinguish between 2 different 
+categories of angle -- even though they're the same human!
+
+It might be interesting to examine the large-$N$ behaviour and see if the some correction could 
+be applied to force some sort of convergence to a fixed value. If you use [MIW's AutoFit] to
+fit the data for $N>40$, you find that the top model is a power-law
+
+$/
 
 ## MIW AutoFit's Binary Equivalent Accuracy
 
