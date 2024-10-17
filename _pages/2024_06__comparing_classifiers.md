@@ -1,7 +1,7 @@
 ---
 title: 'Comparing Classifier Performance -- Introduction to BEA'
-date: 2024-06-10
-permalink: /blog/2024-06-10--Comparing-N-vs-M-Classifiers
+date: 2024-10-16
+permalink: /blog/2024-10-16--Comparing-N-vs-M-Classifiers
 author_profile: true
 ---
 
@@ -21,10 +21,10 @@ model is the **best** for your data.
 
 I was trying to come up with a way to quote a single number for the performance of this program
 (let's say for a resumé).
-It currently has a 95% accuracy with a depth of 1 (7 functional models), 
-a 63% accuracy when the depth is 2 (15 models), 
-40% accuracy when the depth is 3 (120 models), 
-and a 21% accuracy when the depth is 4 (600 models). Which accuracy do I quote? 
+It currently has a 83% accuracy with a depth of 1 (6 functional models), 
+a 78% accuracy when the depth is 2 (18 models), 
+45% accuracy when the depth is 3 (115 models), 
+and a 23% accuracy when the depth is 4 (865 models). Which accuracy do I quote? 
 An accuracy of 95% is deceptive, an accuracy of 20% undersells the power of the program, and
 quoting many accuracies along with the context is too confusing for an impatient reader.
 
@@ -81,9 +81,9 @@ raised to the power of the number of classes less one.
 
 The overall accuracy of the model will be
 
-$$\mathcal{A} = \mathcal{A}_1 P(1-class) + \ldots + \mathcal{A}_5 P(5-class)$$
+$$\mathcal{A} = \mathcal{A}_1 P(\mathrm{class 1}) + \ldots + \mathcal{A}_5 P(\mathrm{class 5})$$
 
-where the $P(i-class)$ simply accounts for the proportion of $i$-class images in the test set. For 
+where the $P(\mathrm{class 1})$ simply accounts for the proportion of $i$-class images in the test set. For 
 a perfectly balanced dataset, this reduces to the mean
 
 $$\mathcal{A} = \frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right]$$
@@ -93,76 +93,41 @@ any number of target classes. So when we report this single number, we shouldn't
 need to also report the number of classes that the models were tested on.
 Let's define the average that appears on the right as
 
-$$\frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right] \equiv \alpha_{bea}^4$$
+$$\frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right] \equiv \mathcal{A}_{BE}^4$$
 
 where the exponent on the right has been chosen to have the same "units" of probability as
-on the left. This value -- $\tilde{\mathcal{A}}_{BE}$ -- is what I call the 
-naive binary-equivalent accuracy.
-It has the literal interpretation as the (N-1)th root of the average of (N-1)th powers of
-geometric means of pairwise accuracies. What a mouthful! 
-Under the *assumption* that the geometric means of 
-accuracies are equal across all classes (p_{gm,1} = ... = p_{gm,5}), 
-then $\tilde{\mathcal{A}}_{BE}$ is the
-same as these geometric means ($\tilde{\mathcal{A}}_{BE} = {p_{gm,i}}$). A tighter interpretation might 
-also be found by examining correlations between the geometric means for each class 
+on the left. This value -- $$\mathcal{A}_{BE}$$ -- is what I call the 
+binary-equivalent accuracy. If I report a certain binary-equivalent accuracy, you can picture that
+my model will, on average$^‡$, have that level of accuracy when given only two possible options.
 
 So we have a number
 
-$$\tilde{\mathcal{A}}_{BE} = \mathcal{A}^{1/(N-1)},$$
+$$\mathcal{A}_{BE} = \mathcal{A}^{1/(N-1)},$$
 
-but as we shall see in the next section, the asymptotic behaviour of $\tilde{\mathcal{A}}_{BE}$ 
-as the number of classes increases is not entirely satisfactory. 
+but as we shall see in the next section, the asymptotic behaviour of $\mathcal{A}_{BE}$ 
+as the number of classes increases is not entirely satisfactory.
 
-
-
-## Benchmarking Naive BEAs with Random Guesses
+## Benchmarking BEAs with Random Guesses
 
 To get a better understanding of what the binary-equivalent accuracy is saying,
 let's use a simple toy model to see how the BEA behaves as the number of categories increases.
 If we have $N$ categories and all our model does is randomly guess the correct category 
 (say with an N-sided die) then its accuracy will be $\mathcal{A}=1/N$, giving a corresponding
-naive binary-equivalent accuracy of 
+binary-equivalent accuracy of 
 
 $$\tilde{\mathcal{A}}_{BE} = \left(\frac{1}{N}\right)^{1/(N-1)}$$
 
-<img src="https://mattingliswhalen.github.io/images/BinaryEquivalentAccuracy/bea_random_model.jpg">
+<p style="text-align:center;">
+<img src="https://raw.githubusercontent.com/MattInglisWhalen/MattInglisWhalen.github.io/refs/heads/main/images/BinaryEquivalentAccuracy/bea_random_model.png">
+</p>
 
-The naive binary-equivalent accuracy (nBEA) rises as the number of classes increases. Uhoh! 
+The binary-equivalent accuracy (BEA) rises as the number of classes increases. Uhoh! 
 While **accuracy** as a
 measure unfairly disadvantages models with a higher number of class labels, 
-the **naive BEA** unfairly disadvantages models with *fewer* categories. 
-In short -- the naive binary-equivalent accuracy of randomly guessing isn't 50%.
+the **BEA** unfairly disadvantages models with *fewer* categories. 
+In short -- the binary-equivalent accuracy of randomly guessing isn't 50%.
 
-There's a relatively easy fix*: if we can make some transformation on the original accuracy 
-such that the average of the binary-equivalent accuracy and the transformed accuracy
-stays constant (at 0.5 hopefully!) then we will have a definition for a true $N$-agnostic
-measure of accuracy. At least, for the simple case of a randomly guessing model. We'll use 
-this method to evaluate other models and see how the method compares.
-
-Since we're asking that
-
-$$0.5 = \tilde{\mathcal{A}} + t(\mathcal{A})$$
-
-for some unknown transformation $t(\mathcal{A})$, we can simply rearrange to find
-
-
-we find how
-close the nBEA of our model is to perfect accuracy, relative to randomness, 
-then propagate that same closeness back to the BEA of randomness with only 2 classes. Using 
-an interpolation/LERP parameter $t$ to measure the closeness (0 is at perfect randomness,
-1 is at perfect accuracy$^‡$)
-
-$$t = \frac{ nBEA_{\mathrm{model}}(N) - nBEA_{\mathrm{randomness}}(N) }{1-nBEA_{\mathrm{randomness}(N)}$$ 
-
-Keeping the same value of closeness $t$ but placing it relative to randomness on two classes,
-we finally get to our true binary-equivalent accuracy $\mathcal{A}$
-
-$$\mathcal{A}_{BE} =  nBEA_(2) + [1-nBEA_{\mathrm{randomness}}(2)] t$$
-
-Expanded out in full form, the monstrosity reads
-
-$$\mathcal{A}_{BE} =  \frac{1}{2} + \frac{1}{2} \frac{\mathcal{A}^{1/(N-1)}-\left(\frac{1}{N}\right)^{1/(N-1)}}{1-\left(\frac{1}{N}\right)^{1/(N-1)}} t$$
-
+For completeness though, let's have a look at another model.
 
 ## Hearing Experiments -- A Playground for Testing
 
@@ -174,8 +139,8 @@ coming from. Your accuracy will be something like 99.5%, with the incorrect tria
 times where you mixed up the response switches, or the sound bounced funnily in the room, or you 
 were distracted thinking about some funny joke. Alternatively, when the sound is from directly 
 in front of you, but shifted ever so slightly to the left or right, you're basically just guessing 
-where the sound came from. Your accuracy will drop to ~50%. Integrated over all possible sound 
-locations (the 360° around you), your net accuracy might sit around 98%.
+whether the sound was more left or right. There, your accuracy will drop to ~50%. 
+Integrated over all possible sound locations (the 360° around you), your net accuracy might sit around 98%.
 
 Now what happens when they add more options? Left, right, front, back? Or more? Your accuracy will
 drop, and eventually drop to zero as the number of options increases to infinity,
@@ -187,49 +152,60 @@ If a beep comes from an angle $\theta$, we pretend that the
 angle at which you perceive the sound will follow a normal distribution centered on $\theta$
 and with some spread $\sigma$. For humans the width of the distribution is about $\sigma ~ 10°$.
 You point at the perceived source of the beep, and our net accuracy is determined by how often 
-you point in the correct quadrant, hextant, octant, etc. For N categories, the accuracy follows 
-the following curve
+you point in the correct quadrant, hextant, octant, etc. For N categories, the accuracies and 
+binary-equivalent accuracies are shown below
 
-<img src="https://mattingliswhalen.github.io/images/BinaryEquivalentAccuracy/accuracy_vs_ncat_hearing_experiment.jpg">
+<img src="https://raw.githubusercontent.com/MattInglisWhalen/MattInglisWhalen.github.io/refs/heads/main/images/BinaryEquivalentAccuracy/hearing_experiment_acc_bea.png">
 
-But the binary equivalent accuracy follows this curve
+Zooming in one the BEA curve for readability,
 
-<img src="https://mattingliswhalen.github.io/images/BinaryEquivalentAccuracy/accuracy_vs_ncat_hearing_experiment.jpg">
+<img src="https://raw.githubusercontent.com/MattInglisWhalen/MattInglisWhalen.github.io/refs/heads/main/images/BinaryEquivalentAccuracy/hearing_experiment_bea_zoomed.png">
 
-The $\mathcal{A}_{BE}$, like the  falls at first, then rises slowly. Ideally the profile should be constant, 
+
+we can see that BEA is mostly constant for the first 100 values of $N$, but just like 
+the Random Guess classifier, it slowly grows as $N$ increases.
+Ideally the profile should be constant, 
 since now one might conclude -- based only on the binary-equivalent accuracy --
 that a human who can distinguish between
 100 different categories of angle is better than a human who can only distinguish between 2 different 
 categories of angle -- even though they're the same human!
 
-It might be interesting to examine the large-$N$ behaviour and see if the some correction could 
-be applied to force some sort of convergence to a fixed value. If you use [MIW's AutoFit] to
-fit the data for $N>40$, you find that the top model is a power-law
+Despite this obvious drawback, we might as well finish what we started. So let's take a look at 
+what the Binary-Equivalent Accuracy says about MIW's AutoFit.
 
-$/
+## MIW AutoFit's Binary-Equivalent Accuracy
 
-## MIW AutoFit's Binary Equivalent Accuracy
+From the benchmarking accuracies in the introduction of this article, here are their respective 
+binary-equivalent accuracies
 
-I've done some benchmarking on MIW's AutoFit.
+| Depth | # Classes | Accuracy | BEA   |
+|-------| -------- | -------- |-------|
+| 1     | 6 | 83% | 96.3% |
+| 2     | 18 | 78% | 98.5% |
+| 3     | 115 | 45% | 99.3% |
+| 4     | 865 | 23% | 99.8% |
 
-As I increase the complexity of possible functional
-models that could possibly fit a given dataset (i.e. as I increase the depth parameter $N$),
-the number of models increases roughly as 2^N. With ...
-For each functional model and have found that 
+The rising BEA values as the number of classes grows is still apparent here. I would be happy
+to report that the model has a binary-equivalent accuracy of over 98%, but it would feel
+disingenuous to report a BEA of 99.8%. More work needs to be done.
 
-Depth 1: 6 classes, 83.3 -> 96.4%
-Depth 2: 18 classes, 77.8% -> 98.53% 
-Depth 3: 115 classes, 44.9% -> 99.3%
-Depth 4: 865 classes, 22.3% -> xx%
+## Future directions
+
+The rising behaviour of the binary-equivalent accuracy on the Random Guess classifier is
+not entirely optimal, so if and when I find a better idea I'll update with a new blog post.
+My current ideas involve either reporting p-values of a certain accuracy relative to the 
+randomly guessing (i.e. what is the probability that a Random Guess classifier would get an accuracy
+better than the measured accuracy on $N$ classes), or reporting the improvement in wrong-guess instances
+relative to a Random Guess classifier.
+
+But at the moment I think I'm relatively satisifed with the idea behind BEA: a multiclass 
+classifier can be thought of as a series of binary classifications, and the BEA reports a certain
+average for the accuracy across each of these binary choices.
 
 
 $^†$: Despite being the result of a softmax function, and despite being commonly called so,
-I am hesitant to call this a probability. 
+I am hesitant to call this a probability.
 
-*: If all we're looking for is a number that "feels" right. There are probably many ways to do this
-with separate benefits and drawbacks.
-$^‡$: Obviously the same process can be applied to models that perform *worse* than random, but I'll
-leave it to you, the reader, to work out how to make a closeness parameter $t'$ for how close the
-nBEA is to 0% accuracy.  
+$^‡$: The averaging is a certain combination of geometric and arithmetic means. 
 
 Tags: #classification #algorithm #statistics #binomial #CDF #binary #equivalent #accuracy

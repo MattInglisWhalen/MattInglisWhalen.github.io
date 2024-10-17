@@ -65,32 +65,17 @@ def accuracy_from_hearing_simulation(C: int = 2):
 
     n_correct = np.sum([choice == truth for choice, truth in zip(class_choices,class_truths)])
     print(f"{C}, {100*n_correct/N_SAMPLES}%, "
-          f"{naive_binary_equivalent_accuracy(n_correct/N_SAMPLES, C):.3F} -> {binary_equivalent_accuracy(n_correct/N_SAMPLES, C):.3F}")
+          f"{binary_equivalent_accuracy(n_correct / N_SAMPLES, C):.3F}")
 
     return n_correct/N_SAMPLES
 
-def naive_binary_equivalent_accuracy(acc_c, n_cats):
+def binary_equivalent_accuracy(acc_c, n_cats):
     """
-    Returns the naive binary-equivalent accuracy, i.e. it doesn't account for the performance
+    Returns the binary-equivalent accuracy, i.e. it doesn't account for the performance
     of randomly guessing.
     """
     nbea = acc_c ** (1 / (n_cats-1))
     return nbea
-
-def binary_equivalent_accuracy(acc_c, n_cats):
-    """
-    Returns the so-called "Binary-Equivalent Accuracy".
-    This method is based on assuming that for n_cats, a success occurs if all pairwise
-    comparisons are also successful, with the success probability for each pair in the
-    gauntlet being equal to the equivalent binary accuracy
-    """
-    nbae = naive_binary_equivalent_accuracy
-    # bea = nbae(1/2,2)
-    # bea += (1 - nbae(1/2,2)) * (nbae(acc_c,n_cats)-nbae(1/n_cats,n_cats)) / (1-nbae(1/n_cats,n_cats))
-
-    bea = nbae(acc_c, n_cats) + (0.5-nbae(1/n_cats,n_cats))
-    print(f"{nbae(acc_c, n_cats)} + {(0.5-nbae(1/n_cats,n_cats))} = {bea}")
-    return bea
 
 def run_and_plot_accuracies():
     """
@@ -100,45 +85,40 @@ def run_and_plot_accuracies():
     cats = []
 
     accs = []
-    nbeas = []
+    beas = []
     sigmas_acc = []
-    sigmas_nbea = []
-    for n_cats in range(2,100):
+    sigmas_bea = []
+    for n_cats in range(2,300):
         cats.append(n_cats)
 
         acc = accuracy_from_hearing_simulation(n_cats)
-        nbea = naive_binary_equivalent_accuracy(acc, n_cats)
+        bea = binary_equivalent_accuracy(acc, n_cats)
 
         sigma_acc = (acc*(1-acc)/N_SAMPLES)**0.5
-        sigma_nbea = sigma_acc * acc**(1/(n_cats-1)-1) / (n_cats-1)
+        sigma_bea = sigma_acc * acc**(1/(n_cats-1)-1) / (n_cats-1)
 
         accs.append(acc)
         sigmas_acc.append(sigma_acc)
 
-        nbeas.append(nbea)
-        sigmas_nbea.append(sigma_nbea)
+        beas.append(bea)
+        sigmas_bea.append(sigma_bea)
 
     # accuracy plotting
     fig, ax = plt.subplots()
-    sns.scatterplot(x=cats, y=accs)
+    sns.scatterplot(x=cats, y=accs, label="Accuracy")
     ax.errorbar(x=cats,
                 y=accs,
                 yerr=sigmas_acc,
                 ecolor=sns.color_palette()[0],
                 ls='None'
                 )
-    sns.scatterplot(x=cats, y=nbeas)
+    sns.scatterplot(x=cats, y=beas, label="BEA")
     ax.errorbar(x=cats,
-                y=nbeas,
-                yerr=sigmas_nbea,
+                y=beas,
+                yerr=sigmas_bea,
                 ecolor=sns.color_palette()[1],
                 ls='None'
                 )
-    plt.show()
-
-    # binary equivalent plotting
-    sns.scatterplot(x=cats, y=[binary_equivalent_accuracy(a, n) for a, n in zip(accs,cats)])
-
     plt.show()
 
 

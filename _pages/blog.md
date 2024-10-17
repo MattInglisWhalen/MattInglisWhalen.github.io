@@ -5,6 +5,12 @@ author_profile: true
 ---
 
 
+2024-10 [Comparing Classifier Performance -- Introduction to BEA](https://mattingliswhalen.github.io/blog/2024-10-16--Comparing-N-vs-M-Classifiers)
+<p style="text-align:center;">
+<a href="https://mattingliswhalen.github.io/blog/2024-10-16--Comparing-N-vs-M-Classifiers">
+<img src="https://raw.githubusercontent.com/MattInglisWhalen/MattInglisWhalen.github.io/refs/heads/main/images/BinaryEquivalentAccuracy/hearing_experiment_acc_bea.png" width="500">
+</a></p>
+
 2024-04 [Clustering points in 2D -- From LHC to Art Exhibits](https://mattingliswhalen.github.io/blog/2024-04-08--2D-Clusters)
 <p style="text-align:center;">
 <a href="https://mattingliswhalen.github.io/blog/2024-04-08--2D-Clusters">
