@@ -21,11 +21,11 @@ model is the **best** for your data.
 
 I was trying to come up with a way to quote a single number for the performance of this program
 (let's say for a resumé).
-It currently has a 83% accuracy with a depth of 1 (6 functional models), 
+It currently has a 100% accuracy with a depth of 1 (6 functional models), 
 a 78% accuracy when the depth is 2 (18 models), 
 45% accuracy when the depth is 3 (115 models), 
 and a 23% accuracy when the depth is 4 (865 models). Which accuracy do I quote? 
-An accuracy of 95% is deceptive, an accuracy of 20% undersells the power of the program, and
+An accuracy of 100% is deceptive, an accuracy of 23% undersells the power of the program, and
 quoting many accuracies along with the context is too confusing for an impatient reader.
 
 This got me to thinking: how do you compare the performance of classification algorithms
@@ -179,11 +179,11 @@ From the benchmarking accuracies in the introduction of this article, here are t
 binary-equivalent accuracies
 
 | Depth | # Classes | Accuracy | BEA   |
-|-------| -------- | -------- |-------|
-| 1     | 6 | 83% | 96.3% |
-| 2     | 18 | 78% | 98.5% |
-| 3     | 115 | 45% | 99.3% |
-| 4     | 865 | 23% | 99.8% |
+|-------| -------- |---------|-------|
+| 1     | 6 | 100%    | 100%  |
+| 2     | 18 | 78%     | 98.5% |
+| 3     | 115 | 45%     | 99.3% |
+| 4     | 865 | 23%     | 99.8% |
 
 The rising BEA values as the number of classes grows is still apparent here. I would be happy
 to report that the model has a binary-equivalent accuracy of over 98%, but it would feel
