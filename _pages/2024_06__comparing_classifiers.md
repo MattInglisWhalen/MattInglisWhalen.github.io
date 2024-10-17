@@ -38,7 +38,7 @@ Imagine you've built a model that can classify images into 5 categories. When pr
 with an image, it will output the degree of association$^†$ $\mathbf{D}$ that the image has with each 
 of the 5 categories. It might look something like this
 
-$$\mathbf{D}(\mathrm{image}) = [0.10 0.05, 0.20 0.30 0.35]$$
+$$\mathbf{D}(\mathrm{image}) = [0.10, 0.05, 0.20, 0.30, 0.35]$$
 
 The model associates the image data most strongly with the fifth class ($D_5 > D_{1,2,3,4}$), and 
 therefore the model will classify the image into that category.
@@ -81,9 +81,9 @@ raised to the power of the number of classes less one.
 
 The overall accuracy of the model will be
 
-$$\mathcal{A} = \mathcal{A}_1 P(\mathrm{class 1}) + \ldots + \mathcal{A}_5 P(\mathrm{class 5})$$
+$$\mathcal{A} = \mathcal{A}_1 P(\mathrm{class\ 1}) + \ldots + \mathcal{A}_5 P(\mathrm{class\ 5})$$
 
-where the $P(\mathrm{class 1})$ simply accounts for the proportion of $i$-class images in the test set. For 
+where the $P(\mathrm{class\ i})$ simply accounts for the proportion of $i$-class images in the test set. For 
 a perfectly balanced dataset, this reduces to the mean
 
 $$\mathcal{A} = \frac{1}{5}\left[ p_{gm,1}^4 + \ldots + p_{gm,5}^4 \right]$$
@@ -148,7 +148,7 @@ but lets see how the binary-equivalent accuracy behaves in this setting.
 
 I've coded up a simple simulation that 
 [can be downloaded here](http://mattingliswhalen.github.io/data/2024_06/hearing_test.py).
-If a beep comes from an angle $\theta$, we pretend that the
+If a beep comes from an angle $\theta\mathrm{,}$ we pretend that the
 angle at which you perceive the sound will follow a normal distribution centered on $\theta$
 and with some spread $\sigma$. For humans the width of the distribution is about $\sigma ~ 10°$.
 You point at the perceived source of the beep, and our net accuracy is determined by how often 
@@ -191,7 +191,7 @@ disingenuous to report a BEA of 99.8%. More work needs to be done.
 
 ## Future directions
 
-The rising behaviour of the binary-equivalent accuracy on the Random Guess classifier is
+The rising behaviour of the binary-equivalent accuracy is
 not entirely optimal, so if and when I find a better idea I'll update with a new blog post.
 My current ideas involve either reporting p-values of a certain accuracy relative to the 
 randomly guessing (i.e. what is the probability that a Random Guess classifier would get an accuracy
