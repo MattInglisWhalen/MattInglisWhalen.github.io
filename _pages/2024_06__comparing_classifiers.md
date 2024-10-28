@@ -150,17 +150,16 @@ I've coded up a simple simulation that
 [can be downloaded here](http://mattingliswhalen.github.io/data/2024_06/hearing_test.py).
 If a beep comes from an angle $\theta\mathrm{,}$ we pretend that the
 angle at which you perceive the sound will follow a normal distribution centered on $\theta$
-and with some spread $\sigma$. For humans the width of the distribution is about $\sigma ~ 10°$.
-You point at the perceived source of the beep, and our net accuracy is determined by how often 
+and with some spread $\sigma$. For humans the width of the distribution is about $\sigma \sim 10°$.
+You point at the perceived source of the beep, and your net accuracy is determined by how often 
 you point in the correct quadrant, hextant, octant, etc. For N categories, the accuracies and 
 binary-equivalent accuracies are shown below
 
 <img src="https://raw.githubusercontent.com/MattInglisWhalen/MattInglisWhalen.github.io/refs/heads/main/images/BinaryEquivalentAccuracy/hearing_experiment_acc_bea.png">
 
-Zooming in one the BEA curve for readability,
+Zooming in on the BEA curve for readability,
 
 <img src="https://raw.githubusercontent.com/MattInglisWhalen/MattInglisWhalen.github.io/refs/heads/main/images/BinaryEquivalentAccuracy/hearing_experiment_bea_zoomed.png">
-
 
 we can see that BEA is mostly constant for the first 100 values of $N$, but just like 
 the Random Guess classifier, it slowly grows as $N$ increases.
