@@ -17,6 +17,7 @@ or visit my blog too see what problems I've been thinking about.
 
 ### News:
 
+- October 2024 --- I've put out a new blog post called [Comparing Classifer Perforance -- and Introduction to BEA](https://mattingliswhalen.github.io/blog/2024-10-16--Comparing-N-vs-M-Classifiers) where I grapple with the problem of comparing the performance of classification models when their class cardinalities differ.
 - April 2024 --- My R package [ClusterByDensity](https://github.com/MattInglisWhalen/ClusterByDensity) can now be used to find clusters in 2D point-spread datasets. Read about it [here](https://mattingliswhalen.github.io/blog/2024-04-08--2D-Clusters)!
 - December 2023 --- I've uploaded my DataCamp [final project](https://github.com/MattInglisWhalen/RecipeSiteTraffic) that goes through the entire pipeline of data cleaning, exploratory analysis, model building, and model appraisal.
 - November 2023 --- [Tutorial pages](https://mattingliswhalen.github.io/MIWs_AutoFit_Tutorial_1/) for MIW's AutoFit are now live.
