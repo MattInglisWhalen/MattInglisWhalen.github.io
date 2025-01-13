@@ -84,12 +84,12 @@ attending the class, allowing more spots to be created for other paying members.
 <details>
 <summary><span style="font-size:16.0pt;">ClusterByDensity (R) -- Clustering Points in 2D</span></summary>
 
-
+<a href="https://github.com/MattInglisWhalen/ClusterByDensity">
 <img src="https://mattingliswhalen.github.io/images/2024_04_08/peak_ellipses.png">
-
+</a>
 
 <br>
 An R package which implements a clustering algorithm for 2D point-spread datasets. 
-Additional functionality includes data visualization through scatterplots, heatmaps, 
+Additional functionality includes data visualization through scatter plots, heatmaps, 
 and superimposed ellipsoidal clusters.
 </details>
