@@ -8,15 +8,15 @@ redirect_from:
   - /about.html
 ---
 
-I am a newly minted physics PhD looking to transfer my skills to the Data Science industry. 
-I'm passionate about estimating uncertainties in a model's output, and I love good visualizations 
-that compare raw data to a model's predictions.
-
-For hiring teams, please visit my portfolio section to view and interact with my completed projects,
-or visit my blog too see what problems I've been thinking about.
+I'm a Medical Physics researcher for internal radiation treatments of cancer. 
+My background is in theoretical physics, with my PhD specializing in Effective Field Theories of QCD.
+In addition to the software development involved with physics, I've completed various passion 
+projects from my "hobby programming", including a desktop app for curve-fitting, and a VR game 
+published on Steam.
 
 ### News:
 
+- February 2025 --- I've accepted a Postdoctoral Fellowship at the [Carleton Laboratory for Radiation Physics](https://physics.carleton.ca/clrp/home). Good to be back!
 - October 2024 --- I've put out a new blog post called [Comparing Classifer Perforance -- and Introduction to BEA](https://mattingliswhalen.github.io/blog/2024-10-16--Comparing-N-vs-M-Classifiers) where I grapple with the problem of comparing the performance of classification models when their class cardinalities differ.
 - April 2024 --- My R package [ClusterByDensity](https://github.com/MattInglisWhalen/ClusterByDensity) can now be used to find clusters in 2D point-spread datasets. Read about it [here](https://mattingliswhalen.github.io/blog/2024-04-08--2D-Clusters)!
 - December 2023 --- I've uploaded my DataCamp [final project](https://github.com/MattInglisWhalen/RecipeSiteTraffic) that goes through the entire pipeline of data cleaning, exploratory analysis, model building, and model appraisal.
