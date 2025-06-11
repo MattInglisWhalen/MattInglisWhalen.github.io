@@ -287,7 +287,7 @@ an installable R package.
 
 Following this [guide](https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html) by 
 Fong Chun Chan, I got to work building the heatmap-based algorithm into an R package called ClusterByDensity, now 
-[available on Github](https://github.com/MattInglisWhalen/MattInglisWhalen.github.io). 
+[available on Github](https://github.com/MattInglisWhalen/ClusterByDensity). 
 It's a pretty simple matter of writing the `roxygen2` function documentation for all the functions you want to expose
 to the user, combined with repeated use of `devtools::document()` and `devtools::load_all()` for the build-test cycle.
 
